@@ -52,8 +52,8 @@
     
     //set style of the line under the navigation bar
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    [self.navigationController.navigationBar setBackgroundImage:[ImageGenerator imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andFrame:CGRectMake(0, 0, screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [ImageGenerator imageFromColor:[UIColor clearColor] andFrame:CGRectMake(0, 0, screenWidth, 1)];
+    [self.navigationController.navigationBar setBackgroundImage:[ImageGenerator imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [ImageGenerator imageFromColor:[UIColor clearColor] andSize:CGSizeMake(screenWidth, 1)];
 }
 
 - (void)didReceiveMemoryWarning {
