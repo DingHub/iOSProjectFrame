@@ -10,6 +10,7 @@
 
 @interface ImageGenerator : NSObject
 
-+ (UIImage *)imageFromColor:(UIColor *)color andFrame:(CGRect)frame;
++ (UIImage *)imageFromColor:(UIColor *)color;
++ (UIImage *)imageFromColor:(UIColor *)color andSize:(CGSize)size;
 
 @end
