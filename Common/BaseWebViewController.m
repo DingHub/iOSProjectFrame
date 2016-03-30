@@ -39,7 +39,9 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    if (self.navigationItem.title == nil) {
+        self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    }
 }
 
 @end
