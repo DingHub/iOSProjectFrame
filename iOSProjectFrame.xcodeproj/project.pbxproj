@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8429BFF51CAB7EC50021445F /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8429BFF41CAB7EC50021445F /* BaseWebViewController.m */; };
 		84A106F61C995B8D00255782 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A106F51C995B8D00255782 /* main.m */; };
 		84A106F91C995B8D00255782 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A106F81C995B8D00255782 /* AppDelegate.m */; };
 		84A106FF1C995B8D00255782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A106FD1C995B8D00255782 /* Main.storyboard */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8429BFF31CAB7EC50021445F /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		8429BFF41CAB7EC50021445F /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		84A106F11C995B8D00255782 /* iOSProjectFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A106F51C995B8D00255782 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84A106F71C995B8D00255782 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 			children = (
 				84A107141C995BFC00255782 /* BaseViewController.h */,
 				84A107151C995BFC00255782 /* BaseViewController.m */,
+				8429BFF31CAB7EC50021445F /* BaseWebViewController.h */,
+				8429BFF41CAB7EC50021445F /* BaseWebViewController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				84A106F91C995B8D00255782 /* AppDelegate.m in Sources */,
 				84A107231C995C1B00255782 /* ImageGenerator.m in Sources */,
 				84A106F61C995B8D00255782 /* main.m in Sources */,
+				8429BFF51CAB7EC50021445F /* BaseWebViewController.m in Sources */,
 				84A107121C995BF400255782 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
