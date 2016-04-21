@@ -22,6 +22,7 @@
     self.view = _webView;
     self.webView.delegate = self;
     if (_urlString) {
+        _urlString = [_urlString stringByReplacingOccurrencesOfString:@" " withString:@""];
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlString]]];
     }
 }

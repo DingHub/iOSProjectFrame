@@ -17,7 +17,7 @@
 		84A107161C995BFC00255782 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107151C995BFC00255782 /* BaseViewController.m */; };
 		84A1071B1C995C0900255782 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1071A1C995C0900255782 /* HttpHelper.m */; };
 		84A107221C995C1B00255782 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1071F1C995C1B00255782 /* HexColor.m */; };
-		84A107231C995C1B00255782 /* ImageGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107211C995C1B00255782 /* ImageGenerator.m */; };
+		84A107231C995C1B00255782 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107211C995C1B00255782 /* ImageHelper.m */; };
 		84A107271C995E1F00255782 /* HomeDetaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107261C995E1F00255782 /* HomeDetaiViewController.m */; };
 		84A107321C9967AF00255782 /* MyCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107311C9967AF00255782 /* MyCenterViewController.m */; };
 /* End PBXBuildFile section */
@@ -41,8 +41,8 @@
 		84A1071A1C995C0900255782 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
 		84A1071E1C995C1B00255782 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		84A1071F1C995C1B00255782 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
-		84A107201C995C1B00255782 /* ImageGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGenerator.h; sourceTree = "<group>"; };
-		84A107211C995C1B00255782 /* ImageGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGenerator.m; sourceTree = "<group>"; };
+		84A107201C995C1B00255782 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		84A107211C995C1B00255782 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 		84A107251C995E1F00255782 /* HomeDetaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetaiViewController.h; sourceTree = "<group>"; };
 		84A107261C995E1F00255782 /* HomeDetaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetaiViewController.m; sourceTree = "<group>"; };
 		84A107301C9967AF00255782 /* MyCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCenterViewController.h; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				84A1071D1C995C1B00255782 /* Categories */,
-				84A107201C995C1B00255782 /* ImageGenerator.h */,
-				84A107211C995C1B00255782 /* ImageGenerator.m */,
+				84A107201C995C1B00255782 /* ImageHelper.h */,
+				84A107211C995C1B00255782 /* ImageHelper.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -255,7 +255,7 @@
 				84A107271C995E1F00255782 /* HomeDetaiViewController.m in Sources */,
 				84A107321C9967AF00255782 /* MyCenterViewController.m in Sources */,
 				84A106F91C995B8D00255782 /* AppDelegate.m in Sources */,
-				84A107231C995C1B00255782 /* ImageGenerator.m in Sources */,
+				84A107231C995C1B00255782 /* ImageHelper.m in Sources */,
 				84A106F61C995B8D00255782 /* main.m in Sources */,
 				8429BFF51CAB7EC50021445F /* BaseWebViewController.m in Sources */,
 				84A107121C995BF400255782 /* HomeViewController.m in Sources */,

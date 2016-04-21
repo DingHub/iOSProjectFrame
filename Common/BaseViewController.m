@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "ImageGenerator.h"
+#import "ImageHelper.h"
 
 @interface BaseViewController ()
 
@@ -52,8 +52,8 @@
     
     //set style of the line under the navigation bar
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    [self.navigationController.navigationBar setBackgroundImage:[ImageGenerator imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [ImageGenerator imageFromColor:[UIColor clearColor] andSize:CGSizeMake(screenWidth, 1)];
+    [self.navigationController.navigationBar setBackgroundImage:[ImageHelper imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [ImageHelper imageFromColor:[UIColor clearColor] andSize:CGSizeMake(screenWidth, 1)];
 }
 
 - (void)didReceiveMemoryWarning {
