@@ -35,6 +35,9 @@
 }
 
 +(UIImage *)imageWithSourceImage:(UIImage *)sourceImage compressedToSize:(CGSize)newSize {
+    if (sourceImage == nil) {
+        return nil;
+    }
     NSLog(@"origon image size : %@",NSStringFromCGSize(sourceImage.size));
     UIGraphicsBeginImageContext(newSize);
     [sourceImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
