@@ -8,24 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ HTTP method definitions.
+ */
+typedef NS_ENUM(NSInteger, RequestMethod) {
+    GET = 0,
+    POST
+};
+
 @interface HttpHelper : NSObject
 
 /**
- *  GET
- *
- *  @param path       url
+ *  Http request
+ *  @param method     GET, POST and so on
+ *  @param path       can be connected with parameters, e.g. "/mobileserver/searchKey.Do?key=hell0"
  *  @param parameters can be nil
- *  @param block      if failed, block(nil)
+ *  @param block      if failed, error will be a hint message and data will be nil
  */
-+ (void)GET:(NSString *)path parameters:(NSDictionary *)parameters completion:(void(^)(id responseData))block;
-
-/**
- *  POST
- *
- *  @param path       url
- *  @param parameters can be nil
- *  @param block      if failed, block(nil)
- */
-+ (void)POST:(NSString *)path parameters:(NSDictionary *)parameters completion:(void(^)(id responseData))block;
++ (void)requestWithMethod:(RequestMethod)method
+                     path:(NSString *)path
+               parameters:(NSDictionary *)parameters
+               completion:(void(^)(NSString *error, id responseData))block;
 
 @end
