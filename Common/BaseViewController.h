@@ -11,7 +11,7 @@
 
 #pragma mark : Here are some headers used frequently
 
-#import "HexColor.h"
+#import "Color.h"
 
 
 

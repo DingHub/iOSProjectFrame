@@ -6,7 +6,7 @@
 //  Copyright © 2016年 Ding. All rights reserved.
 //
 #import <UIKit/UIKit.h>
-#import "HexColor.h"
+#import "Color.h"
 
 @implementation HXColor (HexColorAddition)
 
