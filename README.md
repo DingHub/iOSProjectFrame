@@ -2,5 +2,5 @@ When start a project, there are some base works to do, such as encapsulation of 
 
 Welcome to add your codes!
 
-You can also find a swift version [iOSBaseProject](https://github.com/DingHub/iOSBaseProject
-) with this link.
+You can also find a swift version here: [iOSBaseProject](https://github.com/DingHub/iOSBaseProject
+).
