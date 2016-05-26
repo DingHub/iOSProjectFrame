@@ -17,7 +17,7 @@
  *  @return if failed, nil
  */
 + (NSData *)dataWithJSON:(id)object {
-    return [NSJSONSerialization dataWithJSONObject:object options:0 error:nil];
+    return object ? [NSJSONSerialization dataWithJSONObject:object options:0 error:nil] : nil;
 }
 /**
  *  Parse NSData to JSON (NSArray, NSDictionary...)
@@ -25,7 +25,7 @@
  *  @return if failed, nil
  */
 + (id)JSONWithData:(NSData *)data {
-    return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    return data ? [NSJSONSerialization JSONObjectWithData:data options:0 error:nil] : nil;
 }
 /**
  *  Parse NSData to mutable JSON (NSMutabelArray, NSNSMutabelDictionary...)
@@ -33,7 +33,7 @@
  *  @return if failed, nil
  */
 + (id)mutableJSONWithData:(NSData *)data {
-     return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    return data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil] : nil;
 }
 
 /**
@@ -42,7 +42,7 @@
  *  @return if failed, nil
  */
 + (NSString *)stringWithData:(NSData *)data {
-    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return data ? [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] : nil;
 }
 /**
  *  Parse NSString to NSData
@@ -50,7 +50,7 @@
  *  @return if failed, nil
  */
 + (NSData *)dataWithString:(NSString *)string {
-    return [string dataUsingEncoding:NSUTF8StringEncoding];
+    return string ? [string dataUsingEncoding:NSUTF8StringEncoding] : nil;
 }
 
 /**

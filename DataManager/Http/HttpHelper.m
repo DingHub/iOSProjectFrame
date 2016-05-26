@@ -32,9 +32,9 @@
                completion:(void(^)(NSString *error, id responseData))block
 {
     NSString *url = [NSString stringWithFormat:@"%@%@", [self host], path];
-    //you can use some vendor such as AFNetworking, ASIHttpRequet, or iOS native API.
+    //you can use some vendor such as AFNetworking, ASIHttpRequest, or iOS native API.
     
-    //  1.  Used Apple's native api here
+    //Used Apple's native api here:
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     request.timeoutInterval = 30;
@@ -52,7 +52,7 @@
     
     request.HTTPBody = [JSONHelper dataWithJSON:parameters];
     
-    NSLog(@"%@", request);
+    NSLog(@"Http request--> %@", request);
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -66,35 +66,6 @@
         block(nil, dictionary);
     }];
     [task resume];
-    
-
-    //  2.  Here is an implement example of AFNetworking
-    
-    //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-    //    switch (method) {
-    //        case GET: {
-    //            [manager GET:url parameters:parameterssuccess:^(AFHTTPRequestOperation *operation, id data) {
-    //                block(data);
-    //            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //                NSString *errorStr = error.description;
-    //                block(errorStr, nil);
-    //            }];
-    //            break;
-    //        }
-    //        case POST: {
-    //            [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id data) {
-    //                block(data);
-    //            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //                NSString *errorStr = error.description;
-    //                block(errorStr, nil);
-    //            }];
-    //            break;
-    //        }
-    //        default:
-    //            break;
-    //    }
-
     
 }
 
