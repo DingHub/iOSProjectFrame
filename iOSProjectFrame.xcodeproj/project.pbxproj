@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		845FA59A1CF6CD3B00CEFA47 /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
 		845FA59B1CF6CD3B00CEFA47 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
+		8465B8711CFFD8DA0098DA8C /* JustForLog.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JustForLog.pch; sourceTree = "<group>"; };
 		84A106F11C995B8D00255782 /* iOSProjectFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A106F51C995B8D00255782 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84A106F71C995B8D00255782 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		84A1071C1C995C1B00255782 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8465B8711CFFD8DA0098DA8C /* JustForLog.pch */,
 				84A1071D1C995C1B00255782 /* Categories */,
 				84B7080F1CEFEDFB008C51AD /* JSONHelper.h */,
 				84B708101CEFEDFB008C51AD /* JSONHelper.m */,
@@ -309,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Utils/JustForLog.pch";
 				INFOPLIST_FILE = iOSProjectFrame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -321,6 +324,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Utils/JustForLog.pch";
 				INFOPLIST_FILE = iOSProjectFrame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

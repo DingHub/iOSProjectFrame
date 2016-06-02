@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  s
+//  iOSProjectFrame
 //
 //  Created by admin on 16/5/21.
 //  Copyright © 2016年 Ding. All rights reserved.
@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"Hello, world!");
+    NSString *s = @"Hello, world!";
+    dLog(s);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,0 +1,33 @@
+//
+//  JustForLog.pch
+//  iOSProjectFrame
+//
+//  Created by admin on 16/6/2.
+//  Copyright © 2016年 Ding. All rights reserved.
+//
+
+#ifndef JustForLog_pch
+#define JustForLog_pch
+
+#ifndef __OPTIMIZE__
+
+/**
+ print when debuging
+ */
+#define log(object) NSLog(@"%@", object)
+
+/**
+ print detail log (starts with file name, line number and method name) when debuging
+ */
+#define dLog(object) NSLog((@"⭐️%@🔸%d 🌜%s🌛\n%@"), [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, __FUNCTION__, object)
+
+#else
+
+#define NSLog(...)
+#define dLog(...)
+#define log(...)
+
+#endif /* __OPTIMIZE__ */
+
+
+#endif /* JustForLog_pch */
