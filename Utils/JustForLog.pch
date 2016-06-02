@@ -14,18 +14,18 @@
 /**
  print when debuging
  */
-#define log(object) NSLog(@"%@", object)
+#define log(format, ...) NSLog(format, ## __VA_ARGS__)
 
 /**
  print detail log (starts with file name, line number and method name) when debuging
  */
-#define dLog(object) NSLog((@"⭐️%@🔸%d 🌜%s🌛\n%@"), [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, __FUNCTION__, object)
+# define dLog(format, ...) NSLog((@"⭐️%@🔸%d🌜%s🌛\n" format), [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, __FUNCTION__, ##__VA_ARGS__)
 
 #else
 
 #define NSLog(...)
-#define dLog(...)
-#define log(...)
+#define dLog(object, ...)
+#define log(object, ...)
 
 #endif /* __OPTIMIZE__ */
 
