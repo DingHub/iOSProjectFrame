@@ -16,6 +16,7 @@
 		84A107161C995BFC00255782 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107151C995BFC00255782 /* BaseViewController.m */; };
 		84A107221C995C1B00255782 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A1071F1C995C1B00255782 /* Color.m */; };
 		84A107231C995C1B00255782 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107211C995C1B00255782 /* ImageHelper.m */; };
+		84AE9C381D02E366009F5F02 /* string.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84AE9C371D02E366009F5F02 /* string.txt */; };
 		84B708111CEFEDFB008C51AD /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B708101CEFEDFB008C51AD /* JSONHelper.m */; };
 		84B7083A1CF00A33008C51AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B708391CF00A33008C51AD /* ViewController.m */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		84A1071F1C995C1B00255782 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		84A107201C995C1B00255782 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
 		84A107211C995C1B00255782 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
+		84AE9C371D02E366009F5F02 /* string.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = string.txt; sourceTree = "<group>"; };
 		84B7080F1CEFEDFB008C51AD /* JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
 		84B708101CEFEDFB008C51AD /* JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
 		84B708381CF00A33008C51AD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		84A1071D1C995C1B00255782 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				84AE9C371D02E366009F5F02 /* string.txt */,
 				84A1071E1C995C1B00255782 /* Color.h */,
 				84A1071F1C995C1B00255782 /* Color.m */,
 			);
@@ -182,6 +185,7 @@
 				84A107041C995B8D00255782 /* LaunchScreen.storyboard in Resources */,
 				84A107011C995B8D00255782 /* Assets.xcassets in Resources */,
 				84A106FF1C995B8D00255782 /* Main.storyboard in Resources */,
+				84AE9C381D02E366009F5F02 /* string.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@
 @interface BaseViewController : UIViewController
 
 
-#pragma mark : Some methods can be overrided
+#pragma mark : Some methods can be overridden
 
 -(void)backButtonPress;
 
