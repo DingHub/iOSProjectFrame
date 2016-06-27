@@ -29,14 +29,32 @@
 + (void)requestWithMethod:(RequestMethod)method
                      path:(NSString *)path
                parameters:(NSDictionary *)parameters
-               completion:(void(^)(NSString *error, id responseData))block
+               completion:(void(^)(NSError *error, id responseData))block
 {
-    NSString *url = [NSString stringWithFormat:@"%@%@", [self host], path];
+    NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
+    [self requestWithMethod:method path:absolutePath parameters:parameters completion:block];
+}
+
++ (void)requestWithMethod:(RequestMethod)method
+                    hoset:(NSString *)host
+                     path:(NSString *)path
+               parameters:(NSDictionary *)parameters
+               completion:(void (^)(NSError *, id))block {
+    NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
+    [self requestWithMethod:method path:absolutePath parameters:parameters completion:block];
+    
+}
+
++ (void)requestWithMethod:(RequestMethod)method
+             absolutePath:(NSString *)absolutePath
+               parameters:(NSDictionary *)parameters
+               completion:(void (^)(NSError *, id))block {
+    
     //you can use some vendor such as AFNetworking, ASIHttpRequest, or iOS native API.
     
     //Used Apple's native api here:
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:absolutePath]];
     request.timeoutInterval = 30;
     request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
@@ -57,16 +75,14 @@
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
-            NSLog(@"%@", error.description);
-            NSString *hint = [NSString stringWithFormat:@"error, code is %zd", error.code];
-            block(hint, nil);
+            block(error, nil);
             return;
         }
         NSDictionary *dictionary = [JSONHelper JSONWithData:data];
         block(nil, dictionary);
     }];
     [task resume];
-    
+
 }
 
 

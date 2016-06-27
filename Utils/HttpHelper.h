@@ -28,6 +28,6 @@ typedef NS_ENUM(NSInteger, RequestMethod) {
 + (void)requestWithMethod:(RequestMethod)method
                      path:(NSString *)path
                parameters:(NSDictionary *)parameters
-               completion:(void(^)(NSString *error, id responseData))block;
+               completion:(void(^)(NSError *error, id responseData))block;
 
 @end
