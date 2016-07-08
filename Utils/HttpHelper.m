@@ -32,7 +32,7 @@
                completion:(void(^)(NSError *error, id responseData))block
 {
     NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
-    [self requestWithMethod:method path:absolutePath parameters:parameters completion:block];
+    [self requestWithMethod:method absolutePath:absolutePath parameters:parameters completion:block];
 }
 
 + (void)requestWithMethod:(RequestMethod)method
@@ -41,7 +41,7 @@
                parameters:(NSDictionary *)parameters
                completion:(void (^)(NSError *, id))block {
     NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
-    [self requestWithMethod:method path:absolutePath parameters:parameters completion:block];
+    [self requestWithMethod:method absolutePath:absolutePath parameters:parameters completion:block];
     
 }
 
