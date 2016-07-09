@@ -74,12 +74,15 @@
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error != nil) {
-            block(error, nil);
-            return;
-        }
-        NSDictionary *dictionary = [JSONHelper JSONWithData:data];
-        block(nil, dictionary);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error != nil) {
+                block(error, nil);
+                return;
+            }
+            NSDictionary *dictionary = [JSONHelper JSONWithData:data];
+            block(nil, dictionary);
+        });
+        
     }];
     [task resume];
 
