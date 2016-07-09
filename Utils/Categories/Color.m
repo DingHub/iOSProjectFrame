@@ -1,5 +1,5 @@
 //
-//  HexColor.m
+//  Color.m
 //  iOSProjectFrame
 //
 //  Created by admin on 16/5/21.
@@ -8,22 +8,19 @@
 #import <UIKit/UIKit.h>
 #import "Color.h"
 
-@implementation HXColor (HexColorAddition)
+@implementation Color (HexColorAddition)
 
-+ (HXColor *)colorWithHexString:(NSString *)hexString
-{
++ (Color *)colorWithHexString:(NSString *)hexString {
     return [[self class] colorWithHexString:hexString alpha:1.0];
 }
 
-+ (HXColor *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha
-{
++ (Color *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha {
     if (hexString.length == 0) {
         return nil;
     }
     
     // Check for hash and add the missing hash
-    if('#' != [hexString characterAtIndex:0])
-    {
+    if('#' != [hexString characterAtIndex:0]) {
         hexString = [NSString stringWithFormat:@"#%@", hexString];
     }
     
@@ -42,48 +39,39 @@
     NSString *blueHex   = [NSString stringWithFormat:@"0x%@", [hexString substringWithRange:NSMakeRange(5, 2)]];
     unsigned blueInt = [[self class] hexValueToUnsigned:blueHex];
     
-    HXColor *color = [HXColor colorWith8BitRed:redInt green:greenInt blue:blueInt alpha:alpha];
+    Color *color = [Color colorWith8BitRed:redInt green:greenInt blue:blueInt alpha:alpha];
     
     return color;
 }
 
-+ (HXColor *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue
-{
++ (Color *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue {
     return [[self class] colorWith8BitRed:red green:green blue:blue alpha:1.0];
 }
 
-+ (HXColor *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha
-{
-    HXColor *color = nil;
++ (Color *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha {
+    Color *color = nil;
 #if (TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE)
-    color = [HXColor colorWithRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
+    color = [Color colorWithRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
 #else
     color = [HXColor colorWithCalibratedRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
 #endif
-    
     return color;
 }
 
-+ (NSString *)hexStringTransformFromThreeCharacters:(NSString *)hexString
-{
-    if(hexString.length == 4)
-    {
++ (NSString *)hexStringTransformFromThreeCharacters:(NSString *)hexString {
+    if(hexString.length == 4) {
         hexString = [NSString stringWithFormat:@"#%@%@%@%@%@%@",
                      [hexString substringWithRange:NSMakeRange(1, 1)],[hexString substringWithRange:NSMakeRange(1, 1)],
                      [hexString substringWithRange:NSMakeRange(2, 1)],[hexString substringWithRange:NSMakeRange(2, 1)],
                      [hexString substringWithRange:NSMakeRange(3, 1)],[hexString substringWithRange:NSMakeRange(3, 1)]];
     }
-    
     return hexString;
 }
 
-+ (unsigned)hexValueToUnsigned:(NSString *)hexValue
-{
++ (unsigned)hexValueToUnsigned:(NSString *)hexValue {
     unsigned value = 0;
-    
     NSScanner *hexValueScanner = [NSScanner scannerWithString:hexValue];
     [hexValueScanner scanHexInt:&value];
-    
     return value;
 }
 

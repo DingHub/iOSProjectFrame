@@ -1,5 +1,5 @@
 //
-//  HexColor.h
+//  Color.h
 //  iOSProjectFrame
 //
 //  Created by admin on 16/5/21.
@@ -8,18 +8,18 @@
 
 #if (TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE)
     #import <UIKit/UIKit.h>
-    #define HXColor UIColor
+    #define Color UIColor
 #else
     #import <Foundation/Foundation.h>
-    #define HXColor NSColor
+    #define Color NSColor
 #endif
 
-@interface HXColor (HexColorAddition)
+@interface Color (HexColorAddition)
 
-+ (HXColor *)colorWithHexString:(NSString *)hexString;
-+ (HXColor *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
++ (Color *)colorWithHexString:(NSString *)hexString;
++ (Color *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
 
-+ (HXColor *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
-+ (HXColor *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;
++ (Color *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
++ (Color *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;
 
 @end
