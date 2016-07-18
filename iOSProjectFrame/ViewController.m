@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JSONHelper.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    dLog(@"Hello, world!");
 }
 
 - (void)didReceiveMemoryWarning {

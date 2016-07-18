@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84465D521D3C73700057A2FE /* BaseTabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84465D511D3C73700057A2FE /* BaseTabelViewController.m */; };
 		845FA59C1CF6CD3B00CEFA47 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 845FA59B1CF6CD3B00CEFA47 /* HttpHelper.m */; };
 		84A106F61C995B8D00255782 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A106F51C995B8D00255782 /* main.m */; };
 		84A106F91C995B8D00255782 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A106F81C995B8D00255782 /* AppDelegate.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84465D501D3C73700057A2FE /* BaseTabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabelViewController.h; sourceTree = "<group>"; };
+		84465D511D3C73700057A2FE /* BaseTabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabelViewController.m; sourceTree = "<group>"; };
 		845FA59A1CF6CD3B00CEFA47 /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
 		845FA59B1CF6CD3B00CEFA47 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
 		8465B8711CFFD8DA0098DA8C /* JustForLog.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JustForLog.pch; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 			children = (
 				84A107141C995BFC00255782 /* BaseViewController.h */,
 				84A107151C995BFC00255782 /* BaseViewController.m */,
+				84465D501D3C73700057A2FE /* BaseTabelViewController.h */,
+				84465D511D3C73700057A2FE /* BaseTabelViewController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84465D521D3C73700057A2FE /* BaseTabelViewController.m in Sources */,
 				84A107221C995C1B00255782 /* Color.m in Sources */,
 				84B7083A1CF00A33008C51AD /* ViewController.m in Sources */,
 				84A107161C995BFC00255782 /* BaseViewController.m in Sources */,
