@@ -54,6 +54,8 @@
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     [self.navigationController.navigationBar setBackgroundImage:[ImageHelper imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [ImageHelper imageFromColor:[UIColor clearColor] andSize:CGSizeMake(screenWidth, 1)];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
