@@ -28,7 +28,7 @@
 - (void)createRefreshFooterWithCallback:(void(^)())block {
     
 }
-- (void)showNoMoreAlert {
+- (void)noMoreInfoAction {
     [[[UIAlertView alloc] initWithTitle:@"没有更多信息了~" message:nil delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil] show];
 }
 

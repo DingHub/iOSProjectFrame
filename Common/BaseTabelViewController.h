@@ -15,6 +15,6 @@ const static NSInteger kPageSize = 5;
 @property (nonatomic, assign) NSInteger pageNumber;
 - (void)createRefreshHeaderWithCallback:(void(^)())block;
 - (void)createRefreshFooterWithCallback:(void(^)())block;
-- (void)showNoMoreAlert;
+- (void)noMoreInfoAction;
 
 @end
