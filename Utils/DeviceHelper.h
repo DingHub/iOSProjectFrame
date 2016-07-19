@@ -11,21 +11,21 @@
 @interface DeviceHelper : NSObject
 
 /**
- *  The iOS version without the subversion
+ *  The system version without the subversion
  *  Example: 7.0
  */
-+ (float)iOSVersion;
++ (float)systemVersion;
 
 /**
  *  The device platform string
  *  Example: "iPhone3,2"
  */
-+ (NSString *)devicePlatform;
++ (NSString *)platform;
 /**
  *  The user-friendly device platform string
  *  Example: "iPad Air (Cellular)"
  */
-+ (NSString *)devicePlatformForUser;
++ (NSString *)platformForUser;
 
 /**
  *  Check if the current device is an iPad
@@ -53,16 +53,6 @@
 + (BOOL)isRetinaHD;
 
 /**
- *  The current device CPU frequency
- */
-+ (NSUInteger)cpuFrequency;
-
-/**
- *  The current device BUS frequency
- */
-+ (NSUInteger)busFrequency;
-
-/**
  *  The current device RAM size
  */
 + (NSUInteger)ramSize;
@@ -85,12 +75,12 @@
 /**
  *  The current device total disk space
  */
-+ (NSNumber *)totalDiskSpace;
++ (NSUInteger)totalDiskSpace;
 
 /**
  *  The current device free disk space
  */
-+ (NSNumber *)freeDiskSpace;
++ (NSUInteger)freeDiskSpace;
 
 /**
  *  The current device MAC address
