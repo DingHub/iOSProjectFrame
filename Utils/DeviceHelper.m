@@ -16,8 +16,8 @@ static NSString * const UniqueIdentifierDefaultsKey = @"UniqueIdentifier";
 static NSDictionary *platformMap;
 @implementation DeviceHelper
 
-+ (float)systemVersion {
-    return [UIDevice currentDevice].systemVersion.floatValue;
++ (NSString *)systemVersion {
+    return [UIDevice currentDevice].systemVersion;
 }
 
 + (NSString *)platform {

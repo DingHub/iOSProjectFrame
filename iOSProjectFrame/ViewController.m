@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "JSONHelper.h"
-#import "DeviceHelper.h"
 
 @interface ViewController ()
 
@@ -18,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    dLog(@"Hello world!");    
+    dLog(@"Hello world!");
 }
 
 - (void)didReceiveMemoryWarning {

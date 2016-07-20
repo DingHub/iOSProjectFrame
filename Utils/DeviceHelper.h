@@ -14,7 +14,7 @@
  *  The system version without the subversion
  *  Example: 7.0
  */
-+ (float)systemVersion;
++ (NSString *)systemVersion;
 
 /**
  *  The device platform string
