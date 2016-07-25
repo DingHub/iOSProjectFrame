@@ -14,7 +14,7 @@
     CGFloat red = arc4random_uniform(256)/255.0;
     CGFloat green = arc4random_uniform(256)/255.0;
     CGFloat blue = arc4random_uniform(256)/255.0;
-    return [UIColor colorWithRed:red green:green blue:blue alpha:1];
+    return [Color colorWithRed:red green:green blue:blue alpha:1];
 }
 
 + (Color *)colorWithHexString:(NSString *)hexString {
@@ -51,17 +51,9 @@
     return color;
 }
 
-+ (Color *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue {
-    return [[self class] colorWith8BitRed:red green:green blue:blue alpha:1.0];
-}
-
 + (Color *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha {
     Color *color = nil;
-#if (TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE)
     color = [Color colorWithRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
-#else
-    color = [HXColor colorWithCalibratedRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
-#endif
     return color;
 }
 
