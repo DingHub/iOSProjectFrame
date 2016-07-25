@@ -16,6 +16,8 @@
 
 @interface Color (HexColorAddition)
 
++ (Color *)randomColor;
+
 + (Color *)colorWithHexString:(NSString *)hexString;
 + (Color *)colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
 
