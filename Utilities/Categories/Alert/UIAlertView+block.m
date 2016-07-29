@@ -16,16 +16,18 @@
     otherButtonTitles:(NSArray<NSString *> *)otherTitles
   buttonTappedHandler:(AlertButtonTappedBlock)block {
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                        message:message
-                                                       delegate:[UIApplication sharedApplication]
-                                              cancelButtonTitle:cancelTitle
-                                              otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:title
+                              message:message
+                              delegate:[UIApplication sharedApplication]
+                              cancelButtonTitle:cancelTitle
+                              otherButtonTitles:nil];
     [AlertHelper setButtonTappedHandler:block];
     for (NSString *title in otherTitles) {
         [alertView addButtonWithTitle:title];
     }
     [alertView show];
+    
 }
 
 @end

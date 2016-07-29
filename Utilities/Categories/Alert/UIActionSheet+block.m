@@ -7,7 +7,6 @@
 //
 
 #import "UIActionSheet+block.h"
-#import <objc/runtime.h>
 
 @implementation UIActionSheet (block)
 
@@ -18,16 +17,18 @@
  otherButtonTitles:(NSArray<NSString *> *)otherTitles
 buttonTappedHandler:(AlertButtonTappedBlock)block {
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:title
-                                                            delegate:[UIApplication sharedApplication]
-                                                   cancelButtonTitle:cancelTitle
-                                              destructiveButtonTitle:destructiveTitle
-                                                   otherButtonTitles:nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:title
+                                  delegate:[UIApplication sharedApplication]
+                                  cancelButtonTitle:cancelTitle
+                                  destructiveButtonTitle:destructiveTitle
+                                  otherButtonTitles:nil];
     [AlertHelper setButtonTappedHandler:block];
     for (NSString *title in otherTitles) {
         [actionSheet addButtonWithTitle:title];
     }
     [actionSheet showInView:view];
+    
 }
 
 @end

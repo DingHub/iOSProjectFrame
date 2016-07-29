@@ -12,19 +12,17 @@
 @interface UIAlertController (block)
 
 /**
- *  @param block    -The index of buttons will ordered like : destructive button -> cancel button -> other buttons
- */
-+ (void)showWithStyle:(UIAlertControllerStyle)style
-    forViewController:(UIViewController *)viewController
-                title:(NSString *)title
-              message:(NSString *)message
-destructiveButtonTitle:(NSString *)destructiveTitle
-    cancelButtonTitle:(NSString *)cancelTitle
-    otherButtonTitles:(NSArray<NSString *> *)otherTitles
-  buttonTappedHandler:(AlertButtonTappedBlock)block;
-/**
- *  @param block    -The index of buttons will ordered like : destructive button -> cancel button -> other buttons
- */
+*
+*  @param style
+*  @param viewController
+*  @param rect             If is CGRectNull and the device is an iPad, the action sheet will be displayed from the bottom
+*  @param title
+*  @param message
+*  @param destructiveTitle
+*  @param cancelTitle
+*  @param otherTitles
+*  @param block            -The index of buttons will ordered like : destructive button -> cancel button -> other buttons
+*/
 + (void)showWithStyle:(UIAlertControllerStyle)style
     forViewController:(UIViewController *)viewController
            sourceRect:(CGRect)rect
