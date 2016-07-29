@@ -17,7 +17,18 @@
  *  @return if failed, nil
  */
 + (NSData *)dataWithJSON:(id)object {
-    return object ? [NSJSONSerialization dataWithJSONObject:object options:0 error:nil] : nil;
+    
+    if (object == nil) {
+        dLog(@"JSON->NSData failed:JSON is nil");
+        return nil;
+    }
+    NSError *error;
+    id data = [NSJSONSerialization dataWithJSONObject:object options:0 error:&error];
+    if (error) {
+        dLog(@"JSON->NSData failed:%@", error);
+        return nil;
+    }
+    return data;
 }
 /**
  *  Parse NSData to JSON (NSArray, NSDictionary...)
@@ -25,7 +36,17 @@
  *  @return if failed, nil
  */
 + (id)JSONWithData:(NSData *)data {
-    return data ? [NSJSONSerialization JSONObjectWithData:data options:0 error:nil] : nil;
+    if (data == nil) {
+        dLog(@"NSData->JSON failed:data is nil");
+        return nil;
+    }
+    NSError *error;
+    id JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        dLog(@"NSData->JSON failed:%@", error);
+        return nil;
+    }
+    return JSON;
 }
 /**
  *  Parse NSData to mutable JSON (NSMutabelArray, NSNSMutabelDictionary...)

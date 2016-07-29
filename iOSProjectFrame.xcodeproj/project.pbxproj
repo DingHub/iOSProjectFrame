@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		843746BD1D45ADFA0014D5C6 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746AF1D45ADFA0014D5C6 /* Color.m */; };
-		843746BE1D45ADFA0014D5C6 /* DeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B11D45ADFA0014D5C6 /* DeviceHelper.m */; };
+		843746BE1D45ADFA0014D5C6 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B11D45ADFA0014D5C6 /* DeviceInfo.m */; };
 		843746BF1D45ADFA0014D5C6 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B31D45ADFA0014D5C6 /* HttpHelper.m */; };
 		843746C01D45ADFA0014D5C6 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B51D45ADFA0014D5C6 /* ImageHelper.m */; };
 		843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B71D45ADFA0014D5C6 /* JSONHelper.m */; };
@@ -30,8 +30,8 @@
 /* Begin PBXFileReference section */
 		843746AE1D45ADFA0014D5C6 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		843746AF1D45ADFA0014D5C6 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
-		843746B01D45ADFA0014D5C6 /* DeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceHelper.h; sourceTree = "<group>"; };
-		843746B11D45ADFA0014D5C6 /* DeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceHelper.m; sourceTree = "<group>"; };
+		843746B01D45ADFA0014D5C6 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		843746B11D45ADFA0014D5C6 /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
 		843746B21D45ADFA0014D5C6 /* HttpHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpHelper.h; sourceTree = "<group>"; };
 		843746B31D45ADFA0014D5C6 /* HttpHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpHelper.m; sourceTree = "<group>"; };
 		843746B41D45ADFA0014D5C6 /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				843746A41D45ADFA0014D5C6 /* Categories */,
-				843746B01D45ADFA0014D5C6 /* DeviceHelper.h */,
-				843746B11D45ADFA0014D5C6 /* DeviceHelper.m */,
+				843746B01D45ADFA0014D5C6 /* DeviceInfo.h */,
+				843746B11D45ADFA0014D5C6 /* DeviceInfo.m */,
 				843746B21D45ADFA0014D5C6 /* HttpHelper.h */,
 				843746B31D45ADFA0014D5C6 /* HttpHelper.m */,
 				843746B41D45ADFA0014D5C6 /* ImageHelper.h */,
@@ -244,7 +244,7 @@
 				844155031D4AEC830067C8CB /* AlertHelper.m in Sources */,
 				84A107161C995BFC00255782 /* BaseViewController.m in Sources */,
 				843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */,
-				843746BE1D45ADFA0014D5C6 /* DeviceHelper.m in Sources */,
+				843746BE1D45ADFA0014D5C6 /* DeviceInfo.m in Sources */,
 				843746BF1D45ADFA0014D5C6 /* HttpHelper.m in Sources */,
 				84A106F91C995B8D00255782 /* AppDelegate.m in Sources */,
 				844155041D4AEC830067C8CB /* UIAlertView+block.m in Sources */,

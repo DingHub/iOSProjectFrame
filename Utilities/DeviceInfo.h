@@ -1,5 +1,5 @@
 //
-//  DeviceHelper.h
+//  DeviceInfo.h
 //  iOSProjectFrame
 //
 //  Created by admin on 16/7/18.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DeviceHelper : NSObject
+@interface DeviceInfo : NSObject
 
 /**
  *  The system version without the subversion
