@@ -29,5 +29,4 @@ typedef NS_ENUM(NSInteger, RequestMethod) {
                      path:(NSString *)path
                parameters:(NSDictionary *)parameters
                completion:(void(^)(NSError *error, id responseData))block;
-
 @end

@@ -29,17 +29,18 @@
 + (void)requestWithMethod:(RequestMethod)method
                      path:(NSString *)path
                parameters:(NSDictionary *)parameters
-               completion:(void(^)(NSError *error, id responseData))block
-{
+               completion:(void(^)(NSError *error, id responseData))block {
+    
     NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
     [self requestWithMethod:method absolutePath:absolutePath parameters:parameters completion:block];
 }
 
 + (void)requestWithMethod:(RequestMethod)method
-                    hoset:(NSString *)host
+                    host:(NSString *)host
                      path:(NSString *)path
                parameters:(NSDictionary *)parameters
                completion:(void (^)(NSError *, id))block {
+    
     NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
     [self requestWithMethod:method absolutePath:absolutePath parameters:parameters completion:block];
     
