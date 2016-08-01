@@ -19,7 +19,7 @@
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:title
                               message:message
-                              delegate:[UIApplication sharedApplication]
+                              delegate:[AlertHelper sharedHelper]
                               cancelButtonTitle:cancelTitle
                               otherButtonTitles:nil];
     [AlertHelper setButtonTappedHandler:block];

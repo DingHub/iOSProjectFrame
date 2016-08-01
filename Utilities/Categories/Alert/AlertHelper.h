@@ -10,10 +10,9 @@
 
 typedef void (^AlertButtonTappedBlock)(NSInteger buttonIndex);
 
-@interface UIApplication (ActionSheet) <UIActionSheetDelegate> @end
-@interface UIApplication (AlertView) <UIAlertViewDelegate> @end
+@interface AlertHelper : NSObject <UIAlertViewDelegate, UIActionSheetDelegate>
 
-@interface AlertHelper : NSObject
++ (instancetype)sharedHelper;
 
 + (void)setButtonTappedHandler:(AlertButtonTappedBlock)handler;
 

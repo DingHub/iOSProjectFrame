@@ -19,7 +19,7 @@ buttonTappedHandler:(AlertButtonTappedBlock)block {
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:title
-                                  delegate:[UIApplication sharedApplication]
+                                  delegate:[AlertHelper sharedHelper]
                                   cancelButtonTitle:cancelTitle
                                   destructiveButtonTitle:destructiveTitle
                                   otherButtonTitles:nil];

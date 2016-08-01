@@ -10,7 +10,7 @@
 
 static AlertButtonTappedBlock buttonTappedHandler;
 
-@implementation UIApplication (AlertView)
+@implementation AlertHelper
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonTappedHandler) {
@@ -19,10 +19,6 @@ static AlertButtonTappedBlock buttonTappedHandler;
     }
 }
 
-@end
-
-@implementation UIApplication (ActionSheet)
-
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonTappedHandler) {
         buttonTappedHandler(buttonIndex);
@@ -30,12 +26,29 @@ static AlertButtonTappedBlock buttonTappedHandler;
     }
 }
 
-@end
-
-@implementation AlertHelper
-
 + (void)setButtonTappedHandler:(AlertButtonTappedBlock)handler {
     buttonTappedHandler = handler;
+}
+
++ (instancetype)sharedHelper {
+    static AlertHelper *helper = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        helper = [[AlertHelper alloc] initPrivate];
+    });
+    return helper;
+}
+
+- (instancetype)initPrivate {
+    self  = [super init];
+    return self;
+}
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:@"Singlton"
+                                   reason:@"use [AlertHelper sharedHelper]"
+                                 userInfo:nil];
+    return nil;
 }
 
 @end
