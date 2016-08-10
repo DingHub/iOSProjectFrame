@@ -7,6 +7,7 @@
 //
 
 #import "ImageHelper.h"
+#import "UIView+Snapshot.h"
 
 @implementation ImageHelper
 
@@ -26,15 +27,15 @@
 }
 
 
-+ (UIImage *)imageWithSourceImage:(UIImage *)sourceImage compressedToWidth:(CGFloat)newWidth {
++ (UIImage *)imageFromSourceImage:(UIImage *)sourceImage compressedToWidth:(CGFloat)newWidth {
     CGFloat origonWidth = sourceImage.size.width;
     CGFloat origonHeight = sourceImage.size.height;
     CGFloat newHeight = origonHeight * newWidth / origonWidth;
     CGSize newSize = CGSizeMake(newWidth, newHeight);
-    return [self imageWithSourceImage:sourceImage compressedToSize:newSize];
+    return [self imageFromSourceImage:sourceImage compressedToSize:newSize];
 }
 
-+(UIImage *)imageWithSourceImage:(UIImage *)sourceImage compressedToSize:(CGSize)newSize {
++(UIImage *)imageFromSourceImage:(UIImage *)sourceImage compressedToSize:(CGSize)newSize {
     if (sourceImage == nil) {
         return nil;
     }
@@ -47,5 +48,15 @@
     return newImage;
 }
 
++ (UIImage *)imageFromSourceImage:(UIImage *)sourceImage frame:(CGRect)frame {
+    CGImageRef imageRef = CGImageCreateWithImageInRect(sourceImage.CGImage, frame);
+    UIImage *image = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return image;
+}
+
++ (UIImage *)screenShot {
+    return [UIApplication sharedApplication].keyWindow.snapshot;
+}
 
 @end

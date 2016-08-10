@@ -10,10 +10,34 @@
 
 @interface ImageHelper : NSObject
 
+/**
+ *  generate image with color
+ *  @return the image size will be (1.0, 1.0)
+ */
 + (UIImage *)imageFromColor:(UIColor *)color;
+
+/**
+ *  generate image with color and size
+ */
 + (UIImage *)imageFromColor:(UIColor *)color andSize:(CGSize)size;
 
-+ (UIImage *)imageWithSourceImage:(UIImage *)sourceImage compressedToWidth:(CGFloat)newWidth;
-+ (UIImage *)imageWithSourceImage:(UIImage *)sourceImage compressedToSize:(CGSize)newSize;
+/**
+ *  Compress image
+ */
++ (UIImage *)imageFromSourceImage:(UIImage *)sourceImage compressedToWidth:(CGFloat)newWidth;
+/**
+ *  Compress image
+ */
++ (UIImage *)imageFromSourceImage:(UIImage *)sourceImage compressedToSize:(CGSize)newSize;
+
+/**
+ *  Cut image with frame
+ */
++ (UIImage *)imageFromSourceImage:(UIImage *)sourceImage frame:(CGRect)frame;
+
+/**
+ *  return whole screen shot
+ */
++ (UIImage *)screenShot;
 
 @end

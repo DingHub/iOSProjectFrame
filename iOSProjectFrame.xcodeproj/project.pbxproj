@@ -18,6 +18,10 @@
 		843746C01D45ADFA0014D5C6 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B51D45ADFA0014D5C6 /* ImageHelper.m */; };
 		843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B71D45ADFA0014D5C6 /* JSONHelper.m */; };
 		84465D521D3C73700057A2FE /* BaseTabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84465D511D3C73700057A2FE /* BaseTabelViewController.m */; };
+		848FFC321D5AE8C700AF6B0D /* UIView+ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFC311D5AE8C700AF6B0D /* UIView+ParentViewController.m */; };
+		848FFC351D5AE98300AF6B0D /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFC341D5AE98300AF6B0D /* UIView+Snapshot.m */; };
+		848FFC3C1D5AEF4F00AF6B0D /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFC3B1D5AEF4F00AF6B0D /* Screen.m */; };
+		848FFC3F1D5AF06600AF6B0D /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFC3E1D5AF06600AF6B0D /* FileHelper.m */; };
 		84A106F61C995B8D00255782 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A106F51C995B8D00255782 /* main.m */; };
 		84A106F91C995B8D00255782 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A106F81C995B8D00255782 /* AppDelegate.m */; };
 		84A106FF1C995B8D00255782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A106FD1C995B8D00255782 /* Main.storyboard */; };
@@ -51,6 +55,14 @@
 		843746B81D45ADFA0014D5C6 /* JustForLog.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JustForLog.pch; sourceTree = "<group>"; };
 		84465D501D3C73700057A2FE /* BaseTabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabelViewController.h; sourceTree = "<group>"; };
 		84465D511D3C73700057A2FE /* BaseTabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabelViewController.m; sourceTree = "<group>"; };
+		848FFC301D5AE8C700AF6B0D /* UIView+ParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ParentViewController.h"; sourceTree = "<group>"; };
+		848FFC311D5AE8C700AF6B0D /* UIView+ParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ParentViewController.m"; sourceTree = "<group>"; };
+		848FFC331D5AE98300AF6B0D /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
+		848FFC341D5AE98300AF6B0D /* UIView+Snapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Snapshot.m"; sourceTree = "<group>"; };
+		848FFC3A1D5AEF4F00AF6B0D /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
+		848FFC3B1D5AEF4F00AF6B0D /* Screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Screen.m; sourceTree = "<group>"; };
+		848FFC3D1D5AF06600AF6B0D /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		848FFC3E1D5AF06600AF6B0D /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		84A106F11C995B8D00255782 /* iOSProjectFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProjectFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A106F51C995B8D00255782 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84A106F71C995B8D00255782 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,6 +94,10 @@
 				843746A41D45ADFA0014D5C6 /* Categories */,
 				843746B01D45ADFA0014D5C6 /* DeviceInfo.h */,
 				843746B11D45ADFA0014D5C6 /* DeviceInfo.m */,
+				848FFC3A1D5AEF4F00AF6B0D /* Screen.h */,
+				848FFC3B1D5AEF4F00AF6B0D /* Screen.m */,
+				848FFC3D1D5AF06600AF6B0D /* FileHelper.h */,
+				848FFC3E1D5AF06600AF6B0D /* FileHelper.m */,
 				843746B21D45ADFA0014D5C6 /* HttpHelper.h */,
 				843746B31D45ADFA0014D5C6 /* HttpHelper.m */,
 				843746B41D45ADFA0014D5C6 /* ImageHelper.h */,
@@ -96,6 +112,7 @@
 		843746A41D45ADFA0014D5C6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				848FFC2F1D5AE89F00AF6B0D /* UIView */,
 				843746A51D45ADFA0014D5C6 /* Alert */,
 				843746AE1D45ADFA0014D5C6 /* Color.h */,
 				843746AF1D45ADFA0014D5C6 /* Color.m */,
@@ -118,6 +135,17 @@
 				84069AA41D4F3B0A00C28F96 /* UIAlertController+block.m */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		848FFC2F1D5AE89F00AF6B0D /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				848FFC301D5AE8C700AF6B0D /* UIView+ParentViewController.h */,
+				848FFC311D5AE8C700AF6B0D /* UIView+ParentViewController.m */,
+				848FFC331D5AE98300AF6B0D /* UIView+Snapshot.h */,
+				848FFC341D5AE98300AF6B0D /* UIView+Snapshot.m */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		84A106E81C995B8D00255782 = {
@@ -238,15 +266,19 @@
 				84465D521D3C73700057A2FE /* BaseTabelViewController.m in Sources */,
 				84B7083A1CF00A33008C51AD /* ViewController.m in Sources */,
 				843746C01D45ADFA0014D5C6 /* ImageHelper.m in Sources */,
+				848FFC3F1D5AF06600AF6B0D /* FileHelper.m in Sources */,
 				84069AA81D4F3B0A00C28F96 /* UIActionSheet+block.m in Sources */,
 				84A107161C995BFC00255782 /* BaseViewController.m in Sources */,
+				848FFC321D5AE8C700AF6B0D /* UIView+ParentViewController.m in Sources */,
 				843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */,
 				843746BE1D45ADFA0014D5C6 /* DeviceInfo.m in Sources */,
 				843746BF1D45ADFA0014D5C6 /* HttpHelper.m in Sources */,
 				84A106F91C995B8D00255782 /* AppDelegate.m in Sources */,
 				843746BD1D45ADFA0014D5C6 /* Color.m in Sources */,
+				848FFC3C1D5AEF4F00AF6B0D /* Screen.m in Sources */,
 				84069AA91D4F3B0A00C28F96 /* UIAlertController+block.m in Sources */,
 				84069AA71D4F3B0A00C28F96 /* AlertHelper.m in Sources */,
+				848FFC351D5AE98300AF6B0D /* UIView+Snapshot.m in Sources */,
 				84A106F61C995B8D00255782 /* main.m in Sources */,
 				84069AAA1D4F3B0A00C28F96 /* UIAlertView+block.m in Sources */,
 				84069AAB1D4F3B0A00C28F96 /* UIViewController+BlockAlert.m in Sources */,

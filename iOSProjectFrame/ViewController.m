@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "DeviceInfo.h"
+#import "Screen.h"
 
 @interface ViewController ()
 
@@ -18,8 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dLog(@"Hello world!");
-
-    log(@"%@", [DeviceInfo platformForUser]);
+    log(@"%f", Screen.width);
 }
 
 - (void)didReceiveMemoryWarning {
