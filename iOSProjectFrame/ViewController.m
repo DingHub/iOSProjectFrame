@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "Screen.h"
 
 @interface ViewController ()
 
@@ -18,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dLog(@"Hello world!");
-    log(@"%f", Screen.width);
 }
 
 - (void)didReceiveMemoryWarning {
