@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84069AA71D4F3B0A00C28F96 /* AlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 84069AA21D4F3B0A00C28F96 /* AlertHelper.m */; };
-		84069AA81D4F3B0A00C28F96 /* UIActionSheet+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 84069AA31D4F3B0A00C28F96 /* UIActionSheet+block.m */; };
-		84069AA91D4F3B0A00C28F96 /* UIAlertController+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 84069AA41D4F3B0A00C28F96 /* UIAlertController+block.m */; };
-		84069AAA1D4F3B0A00C28F96 /* UIAlertView+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 84069AA51D4F3B0A00C28F96 /* UIAlertView+block.m */; };
-		84069AAB1D4F3B0A00C28F96 /* UIViewController+BlockAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84069AA61D4F3B0A00C28F96 /* UIViewController+BlockAlert.m */; };
 		843746BD1D45ADFA0014D5C6 /* Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746AF1D45ADFA0014D5C6 /* Color.m */; };
 		843746BE1D45ADFA0014D5C6 /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B11D45ADFA0014D5C6 /* DeviceInfo.m */; };
 		843746BF1D45ADFA0014D5C6 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B31D45ADFA0014D5C6 /* HttpHelper.m */; };
@@ -29,19 +24,11 @@
 		84A107041C995B8D00255782 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A107021C995B8D00255782 /* LaunchScreen.storyboard */; };
 		84A107161C995BFC00255782 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107151C995BFC00255782 /* BaseViewController.m */; };
 		84B7083A1CF00A33008C51AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B708391CF00A33008C51AD /* ViewController.m */; };
+		84FC67B91D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */; };
+		84FC67BA1D5DD1B8009A4A04 /* ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B81D5DD1B8009A4A04 /* ZRDChainableAlert.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		84069A9D1D4F3B0A00C28F96 /* AlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertHelper.h; sourceTree = "<group>"; };
-		84069A9E1D4F3B0A00C28F96 /* UIActionSheet+block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+block.h"; sourceTree = "<group>"; };
-		84069A9F1D4F3B0A00C28F96 /* UIAlertController+block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+block.h"; sourceTree = "<group>"; };
-		84069AA01D4F3B0A00C28F96 /* UIAlertView+block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+block.h"; sourceTree = "<group>"; };
-		84069AA11D4F3B0A00C28F96 /* UIViewController+BlockAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BlockAlert.h"; sourceTree = "<group>"; };
-		84069AA21D4F3B0A00C28F96 /* AlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertHelper.m; sourceTree = "<group>"; };
-		84069AA31D4F3B0A00C28F96 /* UIActionSheet+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+block.m"; sourceTree = "<group>"; };
-		84069AA41D4F3B0A00C28F96 /* UIAlertController+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+block.m"; sourceTree = "<group>"; };
-		84069AA51D4F3B0A00C28F96 /* UIAlertView+block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+block.m"; sourceTree = "<group>"; };
-		84069AA61D4F3B0A00C28F96 /* UIViewController+BlockAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BlockAlert.m"; sourceTree = "<group>"; };
 		843746AE1D45ADFA0014D5C6 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
 		843746AF1D45ADFA0014D5C6 /* Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Color.m; sourceTree = "<group>"; };
 		843746B01D45ADFA0014D5C6 /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
@@ -75,6 +62,10 @@
 		84A107151C995BFC00255782 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		84B708381CF00A33008C51AD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		84B708391CF00A33008C51AD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		84FC67B51D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZRDChainableAlert.h"; sourceTree = "<group>"; };
+		84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZRDChainableAlert.m"; sourceTree = "<group>"; };
+		84FC67B71D5DD1B8009A4A04 /* ZRDChainableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRDChainableAlert.h; sourceTree = "<group>"; };
+		84FC67B81D5DD1B8009A4A04 /* ZRDChainableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRDChainableAlert.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +82,7 @@
 		843746A31D45ADFA0014D5C6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				84FC67B41D5DD1B8009A4A04 /* ChainableAlert */,
 				843746A41D45ADFA0014D5C6 /* Categories */,
 				843746B01D45ADFA0014D5C6 /* DeviceInfo.h */,
 				843746B11D45ADFA0014D5C6 /* DeviceInfo.m */,
@@ -113,28 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				848FFC2F1D5AE89F00AF6B0D /* UIView */,
-				843746A51D45ADFA0014D5C6 /* Alert */,
 				843746AE1D45ADFA0014D5C6 /* Color.h */,
 				843746AF1D45ADFA0014D5C6 /* Color.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		843746A51D45ADFA0014D5C6 /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-				84069AA11D4F3B0A00C28F96 /* UIViewController+BlockAlert.h */,
-				84069AA61D4F3B0A00C28F96 /* UIViewController+BlockAlert.m */,
-				84069A9D1D4F3B0A00C28F96 /* AlertHelper.h */,
-				84069AA21D4F3B0A00C28F96 /* AlertHelper.m */,
-				84069AA01D4F3B0A00C28F96 /* UIAlertView+block.h */,
-				84069AA51D4F3B0A00C28F96 /* UIAlertView+block.m */,
-				84069A9E1D4F3B0A00C28F96 /* UIActionSheet+block.h */,
-				84069AA31D4F3B0A00C28F96 /* UIActionSheet+block.m */,
-				84069A9F1D4F3B0A00C28F96 /* UIAlertController+block.h */,
-				84069AA41D4F3B0A00C28F96 /* UIAlertController+block.m */,
-			);
-			path = Alert;
 			sourceTree = "<group>";
 		};
 		848FFC2F1D5AE89F00AF6B0D /* UIView */ = {
@@ -191,6 +165,17 @@
 				84465D511D3C73700057A2FE /* BaseTabelViewController.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		84FC67B41D5DD1B8009A4A04 /* ChainableAlert */ = {
+			isa = PBXGroup;
+			children = (
+				84FC67B51D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.h */,
+				84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */,
+				84FC67B71D5DD1B8009A4A04 /* ZRDChainableAlert.h */,
+				84FC67B81D5DD1B8009A4A04 /* ZRDChainableAlert.m */,
+			);
+			path = ChainableAlert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +252,6 @@
 				84B7083A1CF00A33008C51AD /* ViewController.m in Sources */,
 				843746C01D45ADFA0014D5C6 /* ImageHelper.m in Sources */,
 				848FFC3F1D5AF06600AF6B0D /* FileHelper.m in Sources */,
-				84069AA81D4F3B0A00C28F96 /* UIActionSheet+block.m in Sources */,
 				84A107161C995BFC00255782 /* BaseViewController.m in Sources */,
 				848FFC321D5AE8C700AF6B0D /* UIView+ParentViewController.m in Sources */,
 				843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */,
@@ -276,12 +260,10 @@
 				84A106F91C995B8D00255782 /* AppDelegate.m in Sources */,
 				843746BD1D45ADFA0014D5C6 /* Color.m in Sources */,
 				848FFC3C1D5AEF4F00AF6B0D /* Screen.m in Sources */,
-				84069AA91D4F3B0A00C28F96 /* UIAlertController+block.m in Sources */,
-				84069AA71D4F3B0A00C28F96 /* AlertHelper.m in Sources */,
+				84FC67B91D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m in Sources */,
+				84FC67BA1D5DD1B8009A4A04 /* ZRDChainableAlert.m in Sources */,
 				848FFC351D5AE98300AF6B0D /* UIView+Snapshot.m in Sources */,
 				84A106F61C995B8D00255782 /* main.m in Sources */,
-				84069AAA1D4F3B0A00C28F96 /* UIAlertView+block.m in Sources */,
-				84069AAB1D4F3B0A00C28F96 /* UIViewController+BlockAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
