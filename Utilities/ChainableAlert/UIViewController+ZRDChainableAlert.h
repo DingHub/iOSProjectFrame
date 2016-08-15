@@ -19,13 +19,13 @@
  [self actionSheet:@"Title" message:@"message"]
  .normalButton(@"normal1")
  .handler(^{
-    NSLog(@"normal1");
+ NSLog(@"normal1");
  })
  .normalButton(@"normal2")
  .normalButton(@"normal3")
  .destructiveButton(@"destructive1")
  .handler (^{
-    NSLog(@"destructive1");
+ NSLog(@"destructive1");
  })
  .destructiveButton(@"destructive2")
  .cancelButton(@"cancel")
@@ -38,6 +38,8 @@
 
 typedef UIViewController * (^ZRDControllerAlertButtonTitleReceiver)(NSString *);
 typedef UIViewController * (^ZRDControllerAlertButtonActionReceiver)(ZRDAlertButtonAction);
+typedef UIViewController * (^ZRDControllerAlertTextFeildReceiver)();
+typedef UIViewController * (^ZRDControllerAlertTextFeildConfigReceiver)(ZRDAlertTextFeildConfigration);
 typedef UIViewController * (^ZRDControllerAlertVoidReceiver)();
 typedef UIViewController * (^ZRDControllerAlertShowAnimationReceiver)(BOOL);
 typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
@@ -68,6 +70,16 @@ typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
  *  Add button action
  */
 - (ZRDControllerAlertButtonActionReceiver)handler;
+
+/**
+ *  Add a textFeild to the alert, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDControllerAlertTextFeildReceiver)textFeild;
+
+/**
+ *  Config the textFeild, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDControllerAlertTextFeildConfigReceiver)configrationHandler;
 
 /**
  *  Actually pass self as a weak point to the alert

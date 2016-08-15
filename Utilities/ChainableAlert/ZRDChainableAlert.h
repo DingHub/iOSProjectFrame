@@ -20,18 +20,22 @@ typedef void(^ZRDAlertButtonAction)();
  .normalButton(@"normal2")
  .normalButton(@"normal3")
  .handler(^{
-    NSLog(@"normal3");
+ NSLog(@"normal3");
+ })
+ .textFeild()
+ .configrationHandler(^(UITextField *textField) {
+ textField.placeholder = @"Input here.";
  })
  .destructiveButton(@"destructive1")
  .handler (^{
-    NSLog(@"destructive1");
+ NSLog(@"destructive1");
  })
  .destructiveButton(@"destructive2")
  .cancelButton(@"cancel")
  .show(self)
  .animated(YES)
  .completion(^{
-    NSLog(@"showed");
+ NSLog(@"showed");
  });
  
  */
@@ -41,6 +45,9 @@ typedef void(^ZRDAlertButtonAction)();
 typedef ZRDChainableAlert * (^ZRDAlertButtonTitleReceiver)(NSString *);
 typedef ZRDChainableAlert * (^ZRDAlertButtonActionReceiver)(ZRDAlertButtonAction);
 typedef ZRDChainableAlert * (^ZRDAlertShowReceiver)(UIViewController *);
+typedef void (^ZRDAlertTextFeildConfigration)(UITextField *);
+typedef ZRDChainableAlert * (^ZRDAlertTextFeildReceiver)();
+typedef ZRDChainableAlert * (^ZRDAlertTextFeildConfigReceiver)(ZRDAlertTextFeildConfigration);
 typedef ZRDChainableAlert * (^ZRDAlertAnimationReceiver)(BOOL);
 typedef ZRDChainableAlert * (^ZRDSourceRectReceiver)(CGRect);
 typedef void (^ZRDCompletion)();
@@ -76,6 +83,16 @@ typedef void (^ZRDCompletionReceriver)(ZRDCompletion);
  *  Add button action
  */
 - (ZRDAlertButtonActionReceiver)handler;
+
+/**
+ *  Add a textFeild to the alert, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDAlertTextFeildReceiver)textField;
+
+/**
+ *  Config the textFeild, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDAlertTextFeildConfigReceiver)configrationHandler;
 
 /**
  *  Actually pass self as a weak point to the alert

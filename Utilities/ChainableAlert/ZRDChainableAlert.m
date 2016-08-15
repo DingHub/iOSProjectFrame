@@ -50,6 +50,8 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 @property (nonatomic, strong) NSMutableArray<ZRDAlertButtonAction> *normalActions;
 @property (nonatomic, strong) NSMutableArray<ZRDAlertButtonAction> *destructiveActions;
 @property (nonatomic, copy) ZRDAlertButtonAction cancelAction;
+@property (nonatomic, strong) NSMutableArray<ZRDAlertTextFeildConfigration> *textFeildConfigrations;
+@property (nonatomic, assign) BOOL textFeildConfiged;
 /**
  *  1-normal, 2-destructiv, 3-cancel
  */
@@ -69,8 +71,9 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
     self.message = message;
     self.style = style;
     
+    self.textFeildConfiged = YES;
     return self;
-
+    
 }
 
 + (instancetype)alert:(NSString *)title message:(NSString *)message {
@@ -109,6 +112,30 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
     };
 }
 
+/**
+ *  Add a textFeild to the alert, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDAlertTextFeildReceiver)textField {
+    return ^ZRDChainableAlert * () {
+        self.textFeildConfiged = NO;
+        [self.textFeildConfigrations addObject:^(UITextField *textField){}];
+        return self;
+    };
+}
+
+/**
+ *  Config the textFeild, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDAlertTextFeildConfigReceiver)configrationHandler {
+    return ^ZRDChainableAlert * (ZRDAlertTextFeildConfigration configration) {
+        NSAssert(self.textFeildConfiged == NO, @"There must have a text field, otherwise, we can't config.");
+        self.textFeildConfiged = YES;
+        if (configration) {
+            [self.textFeildConfigrations replaceObjectAtIndex:self.textFeildConfigrations.count-1 withObject:configration];
+        }
+        return self;
+    };
+}
 
 - (ZRDAlertButtonActionReceiver)handler {
     return ^ZRDChainableAlert * (ZRDAlertButtonAction action) {
@@ -224,6 +251,9 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
             UIAlertAction *action = [UIAlertAction actionWithTitle:self.cancelTitle style:UIAlertActionStyleCancel handler:self.cancelAction];
             [alertController addAction:action];
         }
+        for (ZRDAlertTextFeildConfigration configration in self.textFeildConfigrations) {
+            [alertController addTextFieldWithConfigurationHandler:configration];
+        }
         UIViewController *controller = viewController;
         if (controller == nil) {
             controller = [UIApplication sharedApplication].keyWindow.rootViewController;
@@ -279,6 +309,12 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
         _destructiveActions = [NSMutableArray array];
     }
     return _destructiveActions;
+}
+- (NSMutableArray<ZRDAlertTextFeildConfigration> *)textFeildConfigrations {
+    if (_textFeildConfigrations == nil) {
+        _textFeildConfigrations = [NSMutableArray array];
+    }
+    return _textFeildConfigrations;
 }
 
 

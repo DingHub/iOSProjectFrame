@@ -46,6 +46,26 @@ static ZRDChainableAlert *chainableAlert;
     };
 }
 
+/**
+ *  Add a textFeild to the alert, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDControllerAlertTextFeildReceiver)textFeild {
+    return ^UIViewController * () {
+        chainableAlert.textField();
+        return self;
+    };
+}
+
+/**
+ *  Config the textFeild, if is under iOS 8.0 or is action sheet, no use.
+ */
+- (ZRDControllerAlertTextFeildConfigReceiver)configrationHandler {
+    return ^UIViewController * (ZRDAlertTextFeildConfigration configration) {
+        chainableAlert.configrationHandler(configration);
+        return self;
+    };
+}
+
 - (ZRDControllerAlertVoidReceiver)show {
     return ^UIViewController * () {
         chainableAlert.show(self);
