@@ -7,7 +7,7 @@
 //
 
 #import "BaseTabelViewController.h"
-
+#import "UIViewController+ZRDChainableAlert.h"
 
 
 @implementation BaseTabelViewController
@@ -28,10 +28,15 @@
 - (void)createRefreshFooterWithCallback:(void(^)())block {
     
 }
+
 - (void)noMoreInfoAction {
-    [[[UIAlertView alloc] initWithTitle:@"没有更多信息了~" message:nil delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil] show];
+    
+    [self alert:@"没有更多信息了~" message:nil]
+    .cancelButton(@"知道了")
+    .show()
+    .animated(YES)
+    .completion(nil);
+    
 }
-
-
 
 @end
