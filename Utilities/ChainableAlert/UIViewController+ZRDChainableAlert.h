@@ -58,7 +58,7 @@
 typedef UIViewController * (^ZRDControllerAlertButtonTitleReceiver)(NSString *);
 typedef UIViewController * (^ZRDControllerAlertButtonActionReceiver)(ZRDAlertButtonAction);
 typedef UIViewController * (^ZRDControllerAlertTextFieldReceiver)();
-typedef UIViewController * (^ZRDControllerAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfigration);
+typedef UIViewController * (^ZRDControllerAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfiguration);
 typedef UIViewController * (^ZRDControllerAlertVoidReceiver)();
 typedef UIViewController * (^ZRDControllerAlertShowAnimationReceiver)(BOOL);
 typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
@@ -98,7 +98,7 @@ typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
 /**
  *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDControllerAlertTextFieldConfigReceiver)configrationHandler;
+- (ZRDControllerAlertTextFieldConfigReceiver)configurationHandler;
 
 /**
  *  Actually pass self as a weak point to the alert

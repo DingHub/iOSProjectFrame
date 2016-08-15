@@ -16,11 +16,11 @@
  1.
  [ZRDChainableAlert alert:@"Title" message:@"message"]
  .textField()
- .configrationHandler(^(UITextField *textField) {
+ .configurationHandler(^(UITextField *textField) {
     textField.placeholder = @"UserName";
  })
  .textField()
- .configrationHandler(^(UITextField *textField) {
+ .configurationHandler(^(UITextField *textField) {
  textField.placeholder = @"Password";
     textField.secureTextEntry = YES;
  })
@@ -60,9 +60,9 @@ typedef void(^ZRDAlertButtonAction)(ZRDChainableAlert *);
 typedef ZRDChainableAlert * (^ZRDAlertButtonTitleReceiver)(NSString *);
 typedef ZRDChainableAlert * (^ZRDAlertButtonActionReceiver)(ZRDAlertButtonAction);
 typedef ZRDChainableAlert * (^ZRDAlertShowReceiver)(UIViewController *);
-typedef void (^ZRDAlertTextFieldConfigration)(UITextField *);
+typedef void (^ZRDAlertTextFieldConfiguration)(UITextField *);
 typedef ZRDChainableAlert * (^ZRDAlertTextFieldReceiver)();
-typedef ZRDChainableAlert * (^ZRDAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfigration);
+typedef ZRDChainableAlert * (^ZRDAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfiguration);
 typedef ZRDChainableAlert * (^ZRDAlertAnimationReceiver)(BOOL);
 typedef ZRDChainableAlert * (^ZRDSourceRectReceiver)(CGRect);
 typedef void (^ZRDCompletion)();
@@ -107,7 +107,7 @@ typedef void (^ZRDCompletionReceriver)(ZRDCompletion);
 /**
  *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDAlertTextFieldConfigReceiver)configrationHandler;
+- (ZRDAlertTextFieldConfigReceiver)configurationHandler;
 
 /**
  *  Actually pass self as a weak point to the alert

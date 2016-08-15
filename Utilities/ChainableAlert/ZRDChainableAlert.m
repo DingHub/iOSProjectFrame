@@ -14,6 +14,7 @@ NS_ENUM(NSInteger, AlertStyle) {
 };
 
 @interface ZRDChainableAlert ()
+
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, assign) enum AlertStyle style;
@@ -25,10 +26,11 @@ NS_ENUM(NSInteger, AlertStyle) {
 @property (nonatomic, strong) NSMutableArray<ZRDAlertButtonAction> *normalActions;
 @property (nonatomic, strong) NSMutableArray<ZRDAlertButtonAction> *destructiveActions;
 @property (nonatomic, copy) ZRDAlertButtonAction cancelAction;
-@property (nonatomic, strong) NSMutableArray<ZRDAlertTextFieldConfigration> *textFieldConfigrations;
+@property (nonatomic, strong) NSMutableArray<ZRDAlertTextFieldConfiguration> *textFieldConfigurations;
 @property (nonatomic, assign) BOOL textFieldConfiged;
+
 /**
- *  1-normal, 2-destructiv, 3-cancel
+ *  1-normal, 2-destructive, 3-cancel
  */
 @property (nonatomic, assign) int buttonFlag;
 
@@ -49,6 +51,8 @@ NS_ENUM(NSInteger, AlertStyle) {
     self.style = style;
     
     self.textFieldConfiged = YES;
+    self.fromRect = CGRectNull;
+    
     return self;
 
 }
@@ -88,29 +92,21 @@ NS_ENUM(NSInteger, AlertStyle) {
     };
 }
 
-/**
- *  Add a textField to the alert, if is under iOS 8.0 or is action sheet, no use.
- */
-- (ZRDAlertTextFieldReceiver)textField {
-    return ^ZRDChainableAlert * () {
-        self.textFieldConfiged = NO;
-        [self.textFieldConfigrations addObject:^(UITextField *textField){}];
-        return self;
-    };
-}
-
-/**
- *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
- */
-- (ZRDAlertTextFieldConfigReceiver)configrationHandler {
-    return ^ZRDChainableAlert * (ZRDAlertTextFieldConfigration configration) {
-        NSAssert(self.textFieldConfiged == NO, @"There must have a text field, otherwise, we can't config.");
-        self.textFieldConfiged = YES;
-        if (configration) {
-            [self.textFieldConfigrations replaceObjectAtIndex:self.textFieldConfigrations.count-1 withObject:configration];
-        }
-        return self;
-    };
+- (void)fillEmptyButtonAction {
+    ZRDAlertButtonAction action = ^(ZRDChainableAlert *alert){};
+    switch (self.buttonFlag) {
+        case 1:
+            [self.normalActions addObject:action];
+            break;
+        case 2:
+            [self.destructiveActions addObject:action];
+            break;
+        case 3:
+            self.cancelAction = action;
+            break;
+        default:
+            break;
+    }
 }
 
 - (ZRDAlertButtonActionReceiver)handler {
@@ -132,23 +128,26 @@ NS_ENUM(NSInteger, AlertStyle) {
     };
 }
 
-- (void)fillEmptyButtonAction {
-    ZRDAlertButtonAction action = ^(ZRDChainableAlert *alert){};
-    switch (self.buttonFlag) {
-        case 1:
-            [self.normalActions addObject:action];
-            break;
-        case 2:
-            [self.destructiveActions addObject:action];
-            break;
-        case 3:
-            self.cancelAction = action;
-            break;
-        default:
-            break;
-    }
 
+- (ZRDAlertTextFieldReceiver)textField {
+    return ^ZRDChainableAlert * () {
+        self.textFieldConfiged = NO;
+        [self.textFieldConfigurations addObject:^(UITextField *textField){}];
+        return self;
+    };
 }
+
+- (ZRDAlertTextFieldConfigReceiver)configurationHandler {
+    return ^ZRDChainableAlert * (ZRDAlertTextFieldConfiguration configuration) {
+        NSAssert(self.textFieldConfiged == NO, @"There must have a text field, otherwise, we can't config.");
+        self.textFieldConfiged = YES;
+        if (configuration) {
+            [self.textFieldConfigurations replaceObjectAtIndex:self.textFieldConfigurations.count-1 withObject:configuration];
+        }
+        return self;
+    };
+}
+
 
 - (ZRDAlertShowReceiver)show {
     return ^ZRDChainableAlert * (UIViewController *viewController) {
@@ -169,19 +168,30 @@ NS_ENUM(NSInteger, AlertStyle) {
     };
 }
 - (ZRDCompletionReceriver)completion {
+    
     return ^void (ZRDCompletion block)  {
-        [self showWithViewController:self.viewController souceRect:self.fromRect animated:self.presentAnimated completion:^{
-            if (block) {
-                block();
-            }
-        }];
+        [self showWithViewController:self.viewController
+                           souceRect:self.fromRect
+                            animated:self.presentAnimated
+                          completion:^{
+                              if (block) {
+                                  block();
+                              }
+                          }];
     };
+    
 }
 
-- (void)showWithViewController:(UIViewController *)viewController souceRect:(CGRect)rect animated:(BOOL)animated completion:(void(^)())block {
+- (void)showWithViewController:(UIViewController *)viewController
+                     souceRect:(CGRect)rect
+                      animated:(BOOL)animated
+                    completion:(void(^)())block {
+    
     UIAlertControllerStyle style = self.style==AlertStyleAlert ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:self.title message:self.message preferredStyle:style];
+    
     NSInteger i = 0;
+    
     for (NSString *title in self.normaleTitles) {
         UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             self.normalActions[i](self);
@@ -189,7 +199,9 @@ NS_ENUM(NSInteger, AlertStyle) {
         [alertController addAction:action];
         i ++;
     }
+    
     i = 0;
+    
     for (NSString *title in self.destructiveTitles) {
         UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
             self.destructiveActions[i](self);
@@ -197,6 +209,7 @@ NS_ENUM(NSInteger, AlertStyle) {
         [alertController addAction:action];
         i ++;
     }
+    
     if (self.cancelTitle) {
         UIAlertAction *action = [UIAlertAction actionWithTitle:self.cancelTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
             if (self.cancelAction) {
@@ -206,8 +219,8 @@ NS_ENUM(NSInteger, AlertStyle) {
         [alertController addAction:action];
     }
                                  
-    for (ZRDAlertTextFieldConfigration configration in self.textFieldConfigrations) {
-        [alertController addTextFieldWithConfigurationHandler:configration];
+    for (ZRDAlertTextFieldConfiguration configuration in self.textFieldConfigurations) {
+        [alertController addTextFieldWithConfigurationHandler:configuration];
     }
     self.textFields = alertController.textFields;
     
@@ -223,6 +236,7 @@ NS_ENUM(NSInteger, AlertStyle) {
     } else {
         alertController.popoverPresentationController.sourceRect = rect;
     }
+    
     [controller presentViewController:alertController animated:animated completion:block];
 }
 
@@ -252,11 +266,11 @@ NS_ENUM(NSInteger, AlertStyle) {
     }
     return _destructiveActions;
 }
-- (NSMutableArray<ZRDAlertTextFieldConfigration> *)textFieldConfigrations {
-    if (_textFieldConfigrations == nil) {
-        _textFieldConfigrations = [NSMutableArray array];
+- (NSMutableArray<ZRDAlertTextFieldConfiguration> *)textFieldConfigurations {
+    if (_textFieldConfigurations == nil) {
+        _textFieldConfigurations = [NSMutableArray array];
     }
-    return _textFieldConfigrations;
+    return _textFieldConfigurations;
 }
 
 @end
