@@ -16,16 +16,35 @@
  
  e.g.
  
+ 1.
  [self actionSheet:@"Title" message:@"message"]
  .normalButton(@"normal1")
- .handler(^{
- NSLog(@"normal1");
+ .handler(^(ZRDChainableAlert *alert) {
+    NSLog(@"normal1");
  })
  .normalButton(@"normal2")
  .normalButton(@"normal3")
  .destructiveButton(@"destructive1")
- .handler (^{
- NSLog(@"destructive1");
+ .handler (^(ZRDChainableAlert *alert) {
+    NSLog(@"destructive1");
+ })
+ .destructiveButton(@"destructive2")
+ .cancelButton(@"cancel")
+ .show()
+ .animated(YES)
+ .completion(nil);
+ 
+ 2.
+ [self actionSheet:@"Title" message:@"message"]
+ .normalButton(@"normal1")
+ .handler(^(ZRDChainableAlert *alert) {
+    NSLog(@"normal1");
+ })
+ .normalButton(@"normal2")
+ .normalButton(@"normal3")
+ .destructiveButton(@"destructive1")
+ .handler (^(ZRDChainableAlert *alert) {
+    NSLog(@"destructive1");
  })
  .destructiveButton(@"destructive2")
  .cancelButton(@"cancel")
@@ -38,8 +57,8 @@
 
 typedef UIViewController * (^ZRDControllerAlertButtonTitleReceiver)(NSString *);
 typedef UIViewController * (^ZRDControllerAlertButtonActionReceiver)(ZRDAlertButtonAction);
-typedef UIViewController * (^ZRDControllerAlertTextFeildReceiver)();
-typedef UIViewController * (^ZRDControllerAlertTextFeildConfigReceiver)(ZRDAlertTextFeildConfigration);
+typedef UIViewController * (^ZRDControllerAlertTextFieldReceiver)();
+typedef UIViewController * (^ZRDControllerAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfigration);
 typedef UIViewController * (^ZRDControllerAlertVoidReceiver)();
 typedef UIViewController * (^ZRDControllerAlertShowAnimationReceiver)(BOOL);
 typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
@@ -72,14 +91,14 @@ typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
 - (ZRDControllerAlertButtonActionReceiver)handler;
 
 /**
- *  Add a textFeild to the alert, if is under iOS 8.0 or is action sheet, no use.
+ *  Add a textField to the alert, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDControllerAlertTextFeildReceiver)textFeild;
+- (ZRDControllerAlertTextFieldReceiver)textField;
 
 /**
- *  Config the textFeild, if is under iOS 8.0 or is action sheet, no use.
+ *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDControllerAlertTextFeildConfigReceiver)configrationHandler;
+- (ZRDControllerAlertTextFieldConfigReceiver)configrationHandler;
 
 /**
  *  Actually pass self as a weak point to the alert

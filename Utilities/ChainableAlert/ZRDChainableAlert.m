@@ -13,31 +13,6 @@ NS_ENUM(NSInteger, AlertStyle) {
     AlertStyleActionSheet
 };
 
-// for UIAlertViewDelegate and UIActionSheetDelegate
-static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
-@interface AlertHelper : NSObject <UIAlertViewDelegate, UIActionSheetDelegate> @end
-
-@implementation AlertHelper
-
-+ (instancetype)sharedHelper {
-    static AlertHelper *helper = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        helper = [[AlertHelper alloc] init];
-    });
-    return helper;
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    alertButtonActions[buttonIndex]();
-}
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    alertButtonActions[buttonIndex]();
-}
-
-@end
-
-
 @interface ZRDChainableAlert ()
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *message;
@@ -50,8 +25,8 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 @property (nonatomic, strong) NSMutableArray<ZRDAlertButtonAction> *normalActions;
 @property (nonatomic, strong) NSMutableArray<ZRDAlertButtonAction> *destructiveActions;
 @property (nonatomic, copy) ZRDAlertButtonAction cancelAction;
-@property (nonatomic, strong) NSMutableArray<ZRDAlertTextFeildConfigration> *textFeildConfigrations;
-@property (nonatomic, assign) BOOL textFeildConfiged;
+@property (nonatomic, strong) NSMutableArray<ZRDAlertTextFieldConfigration> *textFieldConfigrations;
+@property (nonatomic, assign) BOOL textFieldConfiged;
 /**
  *  1-normal, 2-destructiv, 3-cancel
  */
@@ -60,6 +35,8 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 @property (nonatomic, weak) UIViewController *viewController;
 @property (nonatomic, assign) BOOL presentAnimated;
 @property (nonatomic, assign) CGRect fromRect;
+
+@property (nonatomic, strong, readwrite)NSArray<UITextField *> *textFields;
 
 @end
 
@@ -71,9 +48,9 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
     self.message = message;
     self.style = style;
     
-    self.textFeildConfiged = YES;
+    self.textFieldConfiged = YES;
     return self;
-    
+
 }
 
 + (instancetype)alert:(NSString *)title message:(NSString *)message {
@@ -85,7 +62,7 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 
 
 - (ZRDAlertButtonTitleReceiver)normalButton {
-    [self fillEmptyActions];
+    [self fillEmptyButtonAction];
     self.buttonFlag = 1;
     return ^ZRDChainableAlert * (NSString *title) {
         [self.normaleTitles addObject:title];
@@ -94,7 +71,7 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 }
 
 - (ZRDAlertButtonTitleReceiver)destructiveButton {
-    [self fillEmptyActions];
+    [self fillEmptyButtonAction];
     self.buttonFlag = 2;
     return ^ZRDChainableAlert * (NSString *title) {
         [self.destructiveTitles addObject:title];
@@ -104,7 +81,6 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 
 
 - (ZRDAlertButtonTitleReceiver)cancelButton {
-    [self fillEmptyActions];
     self.buttonFlag = 3;
     return ^ZRDChainableAlert * (NSString *title) {
         self.cancelTitle = title;
@@ -113,25 +89,25 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 }
 
 /**
- *  Add a textFeild to the alert, if is under iOS 8.0 or is action sheet, no use.
+ *  Add a textField to the alert, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDAlertTextFeildReceiver)textField {
+- (ZRDAlertTextFieldReceiver)textField {
     return ^ZRDChainableAlert * () {
-        self.textFeildConfiged = NO;
-        [self.textFeildConfigrations addObject:^(UITextField *textField){}];
+        self.textFieldConfiged = NO;
+        [self.textFieldConfigrations addObject:^(UITextField *textField){}];
         return self;
     };
 }
 
 /**
- *  Config the textFeild, if is under iOS 8.0 or is action sheet, no use.
+ *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDAlertTextFeildConfigReceiver)configrationHandler {
-    return ^ZRDChainableAlert * (ZRDAlertTextFeildConfigration configration) {
-        NSAssert(self.textFeildConfiged == NO, @"There must have a text field, otherwise, we can't config.");
-        self.textFeildConfiged = YES;
+- (ZRDAlertTextFieldConfigReceiver)configrationHandler {
+    return ^ZRDChainableAlert * (ZRDAlertTextFieldConfigration configration) {
+        NSAssert(self.textFieldConfiged == NO, @"There must have a text field, otherwise, we can't config.");
+        self.textFieldConfiged = YES;
         if (configration) {
-            [self.textFeildConfigrations replaceObjectAtIndex:self.textFeildConfigrations.count-1 withObject:configration];
+            [self.textFieldConfigrations replaceObjectAtIndex:self.textFieldConfigrations.count-1 withObject:configration];
         }
         return self;
     };
@@ -156,21 +132,22 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
     };
 }
 
-- (void)fillEmptyActions {
+- (void)fillEmptyButtonAction {
+    ZRDAlertButtonAction action = ^(ZRDChainableAlert *alert){};
     switch (self.buttonFlag) {
         case 1:
-            if (self.normalActions.count < self.normaleTitles.count) {
-                [self.normalActions addObject:^{}];
-            }
+            [self.normalActions addObject:action];
             break;
         case 2:
-            if (self.destructiveActions.count < self.destructiveTitles.count) {
-                [self.destructiveActions addObject:^{}];
-            }
+            [self.destructiveActions addObject:action];
+            break;
+        case 3:
+            self.cancelAction = action;
             break;
         default:
             break;
     }
+
 }
 
 - (ZRDAlertShowReceiver)show {
@@ -202,89 +179,54 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
 }
 
 - (void)showWithViewController:(UIViewController *)viewController souceRect:(CGRect)rect animated:(BOOL)animated completion:(void(^)())block {
-    if ([[UIDevice currentDevice].systemVersion integerValue] < 8) {
-        [self updateAlertButtonActions];
-        if (self.style == AlertStyleAlert) {
-            UIAlertView *alertView = [[UIAlertView alloc]
-                                      initWithTitle:self.title
-                                      message:self.message
-                                      delegate:[AlertHelper sharedHelper]
-                                      cancelButtonTitle:self.cancelTitle ?: nil
-                                      otherButtonTitles:nil];
-            for (NSString *title in self.normaleTitles) {
-                [alertView addButtonWithTitle:title];
-            }
-            [alertView show];
-        } else {
-            UIActionSheet *actionSheet = [[UIActionSheet alloc]
-                                          initWithTitle:self.title
-                                          delegate:[AlertHelper sharedHelper]
-                                          cancelButtonTitle:self.cancelTitle ?: nil
-                                          destructiveButtonTitle:self.destructiveTitles.count ? self.destructiveTitles.firstObject : nil                                                                                                   otherButtonTitles:nil];
-            for (NSString *title in self.normaleTitles) {
-                [actionSheet addButtonWithTitle:title];
-            }
-            
-            UIViewController *controller = viewController;
-            if (controller == nil) {
-                controller = [UIApplication sharedApplication].keyWindow.rootViewController;
-            }
-            [actionSheet showInView:controller.view];
-        }
-        
-    } else {
-        UIAlertControllerStyle style = self.style==AlertStyleAlert ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet;
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:self.title message:self.message preferredStyle:style];
-        NSInteger i = 0;
-        for (NSString *title in self.normaleTitles) {
-            UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:self.normalActions[i]];
-            [alertController addAction:action];
-            i ++;
-        }
-        i = 0;
-        for (NSString *title in self.destructiveTitles) {
-            UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDestructive handler:self.destructiveActions[i]];
-            [alertController addAction:action];
-            i ++;
-        }
-        if (self.cancelTitle) {
-            UIAlertAction *action = [UIAlertAction actionWithTitle:self.cancelTitle style:UIAlertActionStyleCancel handler:self.cancelAction];
-            [alertController addAction:action];
-        }
-        for (ZRDAlertTextFeildConfigration configration in self.textFeildConfigrations) {
-            [alertController addTextFieldWithConfigurationHandler:configration];
-        }
-        UIViewController *controller = viewController;
-        if (controller == nil) {
-            controller = [UIApplication sharedApplication].keyWindow.rootViewController;
-        }
-        UIView *fromView = controller.view;
-        alertController.popoverPresentationController.sourceView = fromView;
-        CGSize size = fromView.bounds.size;
-        if (CGRectEqualToRect(rect, CGRectNull)) {
-            alertController.popoverPresentationController.sourceRect = CGRectMake(size.width * 0.5, size.height - 2, 0, 2);
-        } else {
-            alertController.popoverPresentationController.sourceRect = rect;
-        }
-        [controller presentViewController:alertController animated:animated completion:block];
+    UIAlertControllerStyle style = self.style==AlertStyleAlert ? UIAlertControllerStyleAlert : UIAlertControllerStyleActionSheet;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:self.title message:self.message preferredStyle:style];
+    NSInteger i = 0;
+    for (NSString *title in self.normaleTitles) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            self.normalActions[i](self);
+        }];
+        [alertController addAction:action];
+        i ++;
     }
+    i = 0;
+    for (NSString *title in self.destructiveTitles) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:title style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            self.destructiveActions[i](self);
+        }];
+        [alertController addAction:action];
+        i ++;
+    }
+    if (self.cancelTitle) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:self.cancelTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            if (self.cancelAction) {
+                self.cancelAction(self);
+            }
+        }];
+        [alertController addAction:action];
+    }
+                                 
+    for (ZRDAlertTextFieldConfigration configration in self.textFieldConfigrations) {
+        [alertController addTextFieldWithConfigurationHandler:configration];
+    }
+    self.textFields = alertController.textFields;
+    
+    UIViewController *controller = viewController;
+    if (controller == nil) {
+        controller = [UIApplication sharedApplication].keyWindow.rootViewController;
+    }
+    UIView *fromView = controller.view;
+    alertController.popoverPresentationController.sourceView = fromView;
+    CGSize size = fromView.bounds.size;
+    if (CGRectEqualToRect(rect, CGRectNull)) {
+        alertController.popoverPresentationController.sourceRect = CGRectMake(size.width * 0.5, size.height - 2, 0, 2);
+    } else {
+        alertController.popoverPresentationController.sourceRect = rect;
+    }
+    [controller presentViewController:alertController animated:animated completion:block];
 }
 
-- (void)updateAlertButtonActions {
-    alertButtonActions = [NSMutableArray array];
-    if (self.style == AlertStyleActionSheet) {
-        if (self.destructiveActions.count > 0) {
-            ZRDAlertButtonAction action = self.destructiveActions.firstObject;
-            [alertButtonActions addObject:action];
-        }
-    }
-    if (self.cancelAction) {
-        [alertButtonActions addObject:self.cancelAction];
-    }
-    for (ZRDAlertButtonAction action in self.normalActions) {
-        [alertButtonActions addObject:action];
-    }
-}
+#pragma mark getters
 
 - (NSMutableArray<NSString *> *)normaleTitles {
     if (_normaleTitles == nil) {
@@ -310,12 +252,11 @@ static NSMutableArray<ZRDAlertButtonAction> *alertButtonActions;
     }
     return _destructiveActions;
 }
-- (NSMutableArray<ZRDAlertTextFeildConfigration> *)textFeildConfigrations {
-    if (_textFeildConfigrations == nil) {
-        _textFeildConfigrations = [NSMutableArray array];
+- (NSMutableArray<ZRDAlertTextFieldConfigration> *)textFieldConfigrations {
+    if (_textFieldConfigrations == nil) {
+        _textFieldConfigrations = [NSMutableArray array];
     }
-    return _textFeildConfigrations;
+    return _textFieldConfigrations;
 }
-
 
 @end

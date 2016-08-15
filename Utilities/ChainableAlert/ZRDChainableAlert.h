@@ -8,46 +8,61 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^ZRDAlertButtonAction)();
-
 /**
  *  Chainable use of alerts.
  
  e.g.
  
+ 1.
  [ZRDChainableAlert alert:@"Title" message:@"message"]
+ .textField()
+ .configrationHandler(^(UITextField *textField) {
+    textField.placeholder = @"UserName";
+ })
+ .textField()
+ .configrationHandler(^(UITextField *textField) {
+ textField.placeholder = @"Password";
+    textField.secureTextEntry = YES;
+ })
+ .normalButton(@"Login")
+ .handler(^(ZRDChainableAlert *alert) {
+    NSArray *textFields = alert.textFields;
+    NSLog(@"Username:%@\nPassword:%@", [textFields[0] text], [textFields[1] text]);
+ })
+ .cancelButton(@"cancel")
+ .show(aViewController)
+ .animated(YES)
+ .completion(nil);
+ 
+ 2.
+ [ZRDChainableAlert actionSheet:@"Title" message:@"message"]
  .normalButton(@"normal1")
+ .handler(^(ZRDChainableAlert *alert) {
+    NSLog(@"normal1");
+ })
  .normalButton(@"normal2")
  .normalButton(@"normal3")
- .handler(^{
- NSLog(@"normal3");
- })
- .textFeild()
- .configrationHandler(^(UITextField *textField) {
- textField.placeholder = @"Input here.";
- })
  .destructiveButton(@"destructive1")
- .handler (^{
- NSLog(@"destructive1");
+ .handler (^(ZRDChainableAlert *alert) {
+    NSLog(@"destructive1");
  })
  .destructiveButton(@"destructive2")
  .cancelButton(@"cancel")
- .show(self)
+ .show(aViewController)
  .animated(YES)
- .completion(^{
- NSLog(@"showed");
- });
- 
+ .completion(nil);
  */
 
-@interface ZRDChainableAlert : NSObject
 
+NS_CLASS_AVAILABLE_IOS(8_0) @interface ZRDChainableAlert : NSObject
+
+typedef void(^ZRDAlertButtonAction)(ZRDChainableAlert *);
 typedef ZRDChainableAlert * (^ZRDAlertButtonTitleReceiver)(NSString *);
 typedef ZRDChainableAlert * (^ZRDAlertButtonActionReceiver)(ZRDAlertButtonAction);
 typedef ZRDChainableAlert * (^ZRDAlertShowReceiver)(UIViewController *);
-typedef void (^ZRDAlertTextFeildConfigration)(UITextField *);
-typedef ZRDChainableAlert * (^ZRDAlertTextFeildReceiver)();
-typedef ZRDChainableAlert * (^ZRDAlertTextFeildConfigReceiver)(ZRDAlertTextFeildConfigration);
+typedef void (^ZRDAlertTextFieldConfigration)(UITextField *);
+typedef ZRDChainableAlert * (^ZRDAlertTextFieldReceiver)();
+typedef ZRDChainableAlert * (^ZRDAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfigration);
 typedef ZRDChainableAlert * (^ZRDAlertAnimationReceiver)(BOOL);
 typedef ZRDChainableAlert * (^ZRDSourceRectReceiver)(CGRect);
 typedef void (^ZRDCompletion)();
@@ -85,14 +100,14 @@ typedef void (^ZRDCompletionReceriver)(ZRDCompletion);
 - (ZRDAlertButtonActionReceiver)handler;
 
 /**
- *  Add a textFeild to the alert, if is under iOS 8.0 or is action sheet, no use.
+ *  Add a textField to the alert, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDAlertTextFeildReceiver)textField;
+- (ZRDAlertTextFieldReceiver)textField;
 
 /**
- *  Config the textFeild, if is under iOS 8.0 or is action sheet, no use.
+ *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
  */
-- (ZRDAlertTextFeildConfigReceiver)configrationHandler;
+- (ZRDAlertTextFieldConfigReceiver)configrationHandler;
 
 /**
  *  Actually pass self as a weak point to the alert
@@ -113,5 +128,10 @@ typedef void (^ZRDCompletionReceriver)(ZRDCompletion);
  *  Must be called, or the alert will not appear. Pass a block as a callback after the alert appeard, if nothing to do, just do like: completion(nil).
  */
 - (ZRDCompletionReceriver)completion;
+
+/**
+ *  textFields added to the alert.
+ */
+@property (nonatomic, strong, readonly)NSArray<UITextField *> *textFields;
 
 @end
