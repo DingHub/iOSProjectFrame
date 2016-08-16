@@ -68,27 +68,30 @@ NS_ENUM(NSInteger, AlertStyle) {
 - (ZRDAlertButtonTitleReceiver)normalButton {
     [self fillEmptyButtonAction];
     self.buttonFlag = 1;
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (NSString *title) {
-        [self.normaleTitles addObject:title];
-        return self;
+        [weakSelf.normaleTitles addObject:title];
+        return weakSelf;
     };
 }
 
 - (ZRDAlertButtonTitleReceiver)destructiveButton {
     [self fillEmptyButtonAction];
     self.buttonFlag = 2;
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (NSString *title) {
-        [self.destructiveTitles addObject:title];
-        return self;
+        [weakSelf.destructiveTitles addObject:title];
+        return weakSelf;
     };
 }
 
 
 - (ZRDAlertButtonTitleReceiver)cancelButton {
     self.buttonFlag = 3;
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (NSString *title) {
-        self.cancelTitle = title;
-        return self;
+        weakSelf.cancelTitle = title;
+        return weakSelf;
     };
 }
 
@@ -110,69 +113,81 @@ NS_ENUM(NSInteger, AlertStyle) {
 }
 
 - (ZRDAlertButtonActionReceiver)handler {
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (ZRDAlertButtonAction action) {
-        switch (self.buttonFlag) {
+        switch (weakSelf.buttonFlag) {
             case 1:
-                [self.normalActions addObject:action];
+                [weakSelf.normalActions addObject:action];
                 break;
             case 2:
-                [self.destructiveActions addObject:action];
+                [weakSelf.destructiveActions addObject:action];
                 break;
             case 3:
-                self.cancelAction = action;
+                weakSelf.cancelAction = action;
                 break;
             default:
                 break;
         }
-        return self;
+        return weakSelf;
     };
 }
 
 
 - (ZRDAlertTextFieldReceiver)textField {
+    
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * () {
-        self.textFieldConfiged = NO;
-        [self.textFieldConfigurations addObject:^(UITextField *textField){}];
-        return self;
+        weakSelf.textFieldConfiged = NO;
+        [weakSelf.textFieldConfigurations addObject:^(UITextField *textField){}];
+        return weakSelf;
     };
 }
 
 - (ZRDAlertTextFieldConfigReceiver)configurationHandler {
+    
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (ZRDAlertTextFieldConfiguration configuration) {
-        NSAssert(self.textFieldConfiged == NO, @"There must have a text field, otherwise, we can't config.");
-        self.textFieldConfiged = YES;
+        NSAssert(weakSelf.textFieldConfiged == NO, @"There must have a text field, otherwise, we can't config.");
+        weakSelf.textFieldConfiged = YES;
         if (configuration) {
-            [self.textFieldConfigurations replaceObjectAtIndex:self.textFieldConfigurations.count-1 withObject:configuration];
+            [weakSelf.textFieldConfigurations replaceObjectAtIndex:self.textFieldConfigurations.count-1 withObject:configuration];
         }
-        return self;
+        return weakSelf;
     };
 }
 
 
 - (ZRDAlertShowReceiver)show {
+    
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (UIViewController *viewController) {
-        self.viewController = viewController;
-        return self;
+        weakSelf.viewController = viewController;
+        return weakSelf;
     };
 }
 - (ZRDAlertAnimationReceiver)animated {
+    
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (BOOL animated) {
-        self.presentAnimated = animated;
-        return self;
+        weakSelf.presentAnimated = animated;
+        return weakSelf;
     };
 }
 - (ZRDSourceRectReceiver)sourceRect {
+    
+    __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (CGRect rect) {
-        self.fromRect = rect;
-        return self;
+        weakSelf.fromRect = rect;
+        return weakSelf;
     };
 }
 - (ZRDCompletionReceriver)completion {
     
+    __weak typeof (self) weakSelf = self;
     return ^void (ZRDCompletion block)  {
-        [self showWithViewController:self.viewController
-                           souceRect:self.fromRect
-                            animated:self.presentAnimated
+        [weakSelf showWithViewController:weakSelf.viewController
+                           souceRect:weakSelf.fromRect
+                            animated:weakSelf.presentAnimated
                           completion:^{
                               if (block) {
                                   block();

@@ -21,28 +21,36 @@ static ZRDChainableAlert *chainableAlert;
 }
 
 - (ZRDControllerAlertButtonTitleReceiver)normalButton {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (NSString * title) {
-        chainableAlert.normalButton(title);
-        return self;
+        weakAlert.normalButton(title);
+        return weakSelf;
     };
 }
 - (ZRDControllerAlertButtonTitleReceiver)destructiveButton {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (NSString *title) {
-        chainableAlert.destructiveButton(title);
-        return self;
+        weakAlert.destructiveButton(title);
+        return weakSelf;
     };
 }
 - (ZRDControllerAlertButtonTitleReceiver)cancelButton {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (NSString *title) {
-        chainableAlert.cancelButton(title);
-        return self;
+        weakAlert.cancelButton(title);
+        return weakSelf;
     };
 }
 
 - (ZRDControllerAlertButtonActionReceiver)handler {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (ZRDAlertButtonAction action) {
-        chainableAlert.handler(action);
-        return self;
+        weakAlert.handler(action);
+        return weakSelf;
     };
 }
 
@@ -50,9 +58,11 @@ static ZRDChainableAlert *chainableAlert;
  *  Add a textField to the alert, if is under iOS 8.0 or is action sheet, no use.
  */
 - (ZRDControllerAlertTextFieldReceiver)textField {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * () {
-        chainableAlert.textField();
-        return self;
+        weakAlert.textField();
+        return weakSelf;
     };
 }
 
@@ -60,33 +70,42 @@ static ZRDChainableAlert *chainableAlert;
  *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
  */
 - (ZRDControllerAlertTextFieldConfigReceiver)configurationHandler {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (ZRDAlertTextFieldConfiguration configuration) {
-        chainableAlert.configurationHandler(configuration);
-        return self;
+        weakAlert.configurationHandler(configuration);
+        return weakSelf;
     };
 }
 
 - (ZRDControllerAlertVoidReceiver)show {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * () {
-        chainableAlert.show(self);
-        return self;
+        weakAlert.show(self);
+        return weakSelf;
     };
 }
 - (ZRDControllerAlertShowAnimationReceiver)animated {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (BOOL animated) {
-        chainableAlert.animated(animated);
-        return self;
+        weakAlert.animated(animated);
+        return weakSelf;
     };
 }
 - (ZRDControllerSourceRectReceiver)sourceRect {
+    __weak typeof (self) weakSelf = self;
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (CGRect rect) {
-        chainableAlert.sourceRect(rect);
-        return self;
+        weakAlert.sourceRect(rect);
+        return weakSelf;
     };
 }
 - (ZRDCompletionReceriver)completion {
+    __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^void (ZRDCompletion block) {
-        chainableAlert.completion(block);
+        weakAlert.completion(block);
     };
 }
 
