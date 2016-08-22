@@ -57,7 +57,6 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:absolutePath]];
     request.timeoutInterval = 30;
-    request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
     
     switch (method) {
         case POST:
