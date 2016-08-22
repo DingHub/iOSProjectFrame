@@ -78,13 +78,9 @@ static ZRDChainableAlert *chainableAlert;
     };
 }
 
-- (ZRDControllerAlertVoidReceiver)show {
-    __weak typeof (self) weakSelf = self;
-    __weak typeof (chainableAlert) weakAlert = chainableAlert;
-    return ^UIViewController * () {
-        weakAlert.show(self);
-        return weakSelf;
-    };
+- (UIViewController *)show {
+    chainableAlert.show(self);
+    return self;
 }
 - (ZRDControllerAlertShowAnimationReceiver)animated {
     __weak typeof (self) weakSelf = self;

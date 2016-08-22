@@ -30,7 +30,7 @@
  })
  .destructiveButton(@"destructive2")
  .cancelButton(@"cancel")
- .show()
+ .show
  .animated(YES)
  .completion(nil);
  
@@ -48,7 +48,7 @@
  })
  .destructiveButton(@"destructive2")
  .cancelButton(@"cancel")
- .show()
+ .show
  .animated(YES)
  .completion(nil);
  
@@ -59,7 +59,6 @@ typedef UIViewController * (^ZRDControllerAlertButtonTitleReceiver)(NSString *);
 typedef UIViewController * (^ZRDControllerAlertButtonActionReceiver)(ZRDAlertButtonAction);
 typedef UIViewController * (^ZRDControllerAlertTextFieldReceiver)();
 typedef UIViewController * (^ZRDControllerAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfiguration);
-typedef UIViewController * (^ZRDControllerAlertVoidReceiver)();
 typedef UIViewController * (^ZRDControllerAlertShowAnimationReceiver)(BOOL);
 typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
 
@@ -103,7 +102,7 @@ typedef UIViewController * (^ZRDControllerSourceRectReceiver)(CGRect);
 /**
  *  Actually pass self as a weak point to the alert
  */
-- (ZRDControllerAlertVoidReceiver)show;
+- (UIViewController *)show;
 
 /**
  *  If below iOS 8 , no use.
