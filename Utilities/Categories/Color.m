@@ -17,6 +17,18 @@
     return [Color colorWithRed:red green:green blue:blue alpha:1];
 }
 
++ (Color *)colorWithHex:(UInt32)hex {
+    return [self colorWithHex: hex alpha: 1];
+}
+
++ (Color *)colorWithHex:(UInt32)hex alpha:(CGFloat)alpha {
+    UInt32 mask = 0x000000FF;
+    CGFloat red = ((hex >> 16) & mask) / 255.0;
+    CGFloat green = ((hex >> 8) & mask) / 255.0;
+    CGFloat blue = (hex & mask) / 255.0;
+    return [Color colorWithRed: red green: green blue: blue alpha:alpha];
+}
+
 + (Color *)colorWithHexString:(NSString *)hexString {
     return [[self class] colorWithHexString:hexString alpha:1.0];
 }
@@ -26,52 +38,18 @@
         return nil;
     }
     
-    // Check for hash and add the missing hash
-    if('#' != [hexString characterAtIndex:0]) {
-        hexString = [NSString stringWithFormat:@"#%@", hexString];
+    NSScanner *scanner = [NSScanner scannerWithString:hexString];
+    if ([hexString hasPrefix:@"#"]) {
+        scanner.scanLocation = 1;
     }
     
-    // check for string length
-    assert(7 == hexString.length || 4 == hexString.length);
+    UInt32 color = 0;
     
-    // check for 3 character HexStrings
-    hexString = [[self class] hexStringTransformFromThreeCharacters:hexString];
-    
-    NSString *redHex    = [NSString stringWithFormat:@"0x%@", [hexString substringWithRange:NSMakeRange(1, 2)]];
-    unsigned redInt = [[self class] hexValueToUnsigned:redHex];
-    
-    NSString *greenHex  = [NSString stringWithFormat:@"0x%@", [hexString substringWithRange:NSMakeRange(3, 2)]];
-    unsigned greenInt = [[self class] hexValueToUnsigned:greenHex];
-    
-    NSString *blueHex   = [NSString stringWithFormat:@"0x%@", [hexString substringWithRange:NSMakeRange(5, 2)]];
-    unsigned blueInt = [[self class] hexValueToUnsigned:blueHex];
-    
-    Color *color = [Color colorWith8BitRed:redInt green:greenInt blue:blueInt alpha:alpha];
-    
-    return color;
-}
-
-+ (Color *)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha {
-    Color *color = nil;
-    color = [Color colorWithRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
-    return color;
-}
-
-+ (NSString *)hexStringTransformFromThreeCharacters:(NSString *)hexString {
-    if(hexString.length == 4) {
-        hexString = [NSString stringWithFormat:@"#%@%@%@%@%@%@",
-                     [hexString substringWithRange:NSMakeRange(1, 1)],[hexString substringWithRange:NSMakeRange(1, 1)],
-                     [hexString substringWithRange:NSMakeRange(2, 1)],[hexString substringWithRange:NSMakeRange(2, 1)],
-                     [hexString substringWithRange:NSMakeRange(3, 1)],[hexString substringWithRange:NSMakeRange(3, 1)]];
+    if ([scanner scanHexInt:&color]) {
+        return [self colorWithHex:color alpha: alpha];
+    } else {
+        return [self colorWithHex:0x000000 alpha:alpha];
     }
-    return hexString;
-}
-
-+ (unsigned)hexValueToUnsigned:(NSString *)hexValue {
-    unsigned value = 0;
-    NSScanner *hexValueScanner = [NSScanner scannerWithString:hexValue];
-    [hexValueScanner scanHexInt:&value];
-    return value;
 }
 
 

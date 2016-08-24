@@ -33,7 +33,7 @@
     
     [self alert:@"没有更多信息了~" message:nil]
     .cancelButton(@"知道了")
-    .show()
+    .show
     .animated(YES)
     .completion(nil);
     
