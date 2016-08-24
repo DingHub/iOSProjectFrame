@@ -25,6 +25,7 @@
 		84A107161C995BFC00255782 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A107151C995BFC00255782 /* BaseViewController.m */; };
 		84B7083A1CF00A33008C51AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B708391CF00A33008C51AD /* ViewController.m */; };
 		84C3BEFF1D6D280800817686 /* UIImage+CutCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BEFE1D6D280800817686 /* UIImage+CutCircle.m */; };
+		84C3BF071D6D797200817686 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BF061D6D797200817686 /* Random.m */; };
 		84FC67B91D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */; };
 		84FC67BA1D5DD1B8009A4A04 /* ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B81D5DD1B8009A4A04 /* ZRDChainableAlert.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,8 @@
 		84B708391CF00A33008C51AD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84C3BEFD1D6D280800817686 /* UIImage+CutCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CutCircle.h"; sourceTree = "<group>"; };
 		84C3BEFE1D6D280800817686 /* UIImage+CutCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CutCircle.m"; sourceTree = "<group>"; };
+		84C3BF051D6D797200817686 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		84C3BF061D6D797200817686 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		84FC67B51D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZRDChainableAlert.h"; sourceTree = "<group>"; };
 		84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZRDChainableAlert.m"; sourceTree = "<group>"; };
 		84FC67B71D5DD1B8009A4A04 /* ZRDChainableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRDChainableAlert.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 				843746B61D45ADFA0014D5C6 /* JSONHelper.h */,
 				843746B71D45ADFA0014D5C6 /* JSONHelper.m */,
 				843746B81D45ADFA0014D5C6 /* JustForLog.pch */,
+				84C3BF051D6D797200817686 /* Random.h */,
+				84C3BF061D6D797200817686 /* Random.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 				84FC67B91D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m in Sources */,
 				84FC67BA1D5DD1B8009A4A04 /* ZRDChainableAlert.m in Sources */,
 				848FFC351D5AE98300AF6B0D /* UIView+Snapshot.m in Sources */,
+				84C3BF071D6D797200817686 /* Random.m in Sources */,
 				84A106F61C995B8D00255782 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

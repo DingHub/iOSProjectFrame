@@ -11,12 +11,6 @@
 @interface Color (HexColorAddition)
 
 /**
- *  Creates a color of random red, green and blue
- *  @return random color
- */
-+ (Color *)randomColor;
-
-/**
  *  Creates a color from an hex integer (e.g. 0x3498db). alpha will be 1.
  *  @param hex A hexa-decimal UInt32 that represents a color.
  */
