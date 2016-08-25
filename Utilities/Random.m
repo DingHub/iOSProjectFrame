@@ -19,15 +19,15 @@
 }
 
 + (double)doubleWithLower:(double)lower upper:(double)upper {
-    return ((double)arc4random() / 0xFFFFFFFF) * (upper - lower) + lower;
+    return ((double)arc4random() / UINT32_MAX) * (upper - lower) + lower;
 }
 
 + (float)floatWithLower:(float)lower upper:(float)upper {
-    return ((float)(arc4random()) / 0xFFFFFFFF) * (upper - lower) + lower;
+    return ((float)(arc4random()) / UINT32_MAX) * (upper - lower) + lower;
 }
 
 + (CGFloat)CGFloatWithLower:(CGFloat)lower upper:(CGFloat)upper {
-    return (CGFloat)((float)arc4random() / (float)UINT32_MAX) * (upper - lower) + lower;
+    return (CGFloat)((CGFloat)arc4random() / UINT32_MAX) * (upper - lower) + lower;
 }
 
 + (Color *)color {
