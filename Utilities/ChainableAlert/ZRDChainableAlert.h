@@ -15,13 +15,11 @@
  
  1.
  [ZRDChainableAlert alert:@"Title" message:@"message"]
- .textField()
- .configurationHandler(^(UITextField *textField) {
+ .configTextField(^(UITextField *textField) {
     textField.placeholder = @"UserName";
  })
- .textField()
- .configurationHandler(^(UITextField *textField) {
- textField.placeholder = @"Password";
+ .configTextField(^(UITextField *textField) {
+    textField.placeholder = @"Password";
     textField.secureTextEntry = YES;
  })
  .normalButton(@"Login")
@@ -61,7 +59,6 @@ typedef ZRDChainableAlert * (^ZRDAlertButtonTitleReceiver)(NSString *);
 typedef ZRDChainableAlert * (^ZRDAlertButtonActionReceiver)(ZRDAlertButtonAction);
 typedef ZRDChainableAlert * (^ZRDAlertShowReceiver)(UIViewController *);
 typedef void (^ZRDAlertTextFieldConfiguration)(UITextField *);
-typedef ZRDChainableAlert * (^ZRDAlertTextFieldReceiver)();
 typedef ZRDChainableAlert * (^ZRDAlertTextFieldConfigReceiver)(ZRDAlertTextFieldConfiguration);
 typedef ZRDChainableAlert * (^ZRDAlertAnimationReceiver)(BOOL);
 typedef ZRDChainableAlert * (^ZRDSourceRectReceiver)(CGRect);
@@ -69,15 +66,14 @@ typedef void (^ZRDCompletion)();
 typedef void (^ZRDCompletionReceriver)(ZRDCompletion);
 
 /**
- *  Create alert, actually UIAlertView if the device is below iOS 8 or UIAlertController for iOS 8 and later
+ *  Create UIAlertController with alertView style
  */
 + (instancetype)alert:(NSString *)title message:(NSString *)message;
 
 /**
- *  Create alert, actually UIActionSheet if the device is below iOS 8 or UIAlertController for iOS 8 and later
+ *  Create UIAlertController with actionSheet style
  */
 + (instancetype)actionSheet:(NSString *)title message:(NSString *)message;
-
 
 /**
  *  Add a normal button to the alert
@@ -85,7 +81,7 @@ typedef void (^ZRDCompletionReceriver)(ZRDCompletion);
 - (ZRDAlertButtonTitleReceiver)normalButton;
 
 /**
- *  Add a destructive button to the alert, we can add more than 1 for iOS 8 and later, BUT, if below iOS 8, this func will do nothing for alertView, and only one destructive button will added for actionSheet
+ *  Add a destructive button to the alert
  */
 - (ZRDAlertButtonTitleReceiver)destructiveButton;
 
@@ -100,27 +96,22 @@ typedef void (^ZRDCompletionReceriver)(ZRDCompletion);
 - (ZRDAlertButtonActionReceiver)handler;
 
 /**
- *  Add a textField to the alert, if is under iOS 8.0 or is action sheet, no use.
+ *  Add a textField to the alert and config it, if is action sheet, no use. If the config action is nil, a textField will also be added.
  */
-- (ZRDAlertTextFieldReceiver)textField;
+- (ZRDAlertTextFieldConfigReceiver)configTextField;
 
 /**
- *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
- */
-- (ZRDAlertTextFieldConfigReceiver)configurationHandler;
-
-/**
- *  Actually pass self as a weak point to the alert
+ *  Actually pass a UIViewController as a weak point to the alert
  */
 - (ZRDAlertShowReceiver)show;
 
 /**
- *  If below iOS 8 , no use.
+ *
  */
 - (ZRDAlertAnimationReceiver)animated;
 
 /**
- *  If UIAlertController used, and style is action sheet, and device is iPad, we can set the source rect for the popover controller
+ *  If the style is action sheet, and device is iPad, we can set the source rect for the popover controller
  */
 - (ZRDSourceRectReceiver)sourceRect;
 

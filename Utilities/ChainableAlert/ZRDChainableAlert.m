@@ -27,7 +27,6 @@ NS_ENUM(NSInteger, AlertStyle) {
 @property (nonatomic, strong) NSMutableArray<ZRDAlertButtonAction> *destructiveActions;
 @property (nonatomic, copy) ZRDAlertButtonAction cancelAction;
 @property (nonatomic, strong) NSMutableArray<ZRDAlertTextFieldConfiguration> *textFieldConfigurations;
-@property (nonatomic, assign) BOOL textFieldConfiged;
 
 /**
  *  1-normal, 2-destructive, 3-cancel
@@ -50,7 +49,6 @@ NS_ENUM(NSInteger, AlertStyle) {
     self.message = message;
     self.style = style;
     
-    self.textFieldConfiged = YES;
     self.fromRect = CGRectNull;
     
     return self;
@@ -132,26 +130,14 @@ NS_ENUM(NSInteger, AlertStyle) {
     };
 }
 
-
-- (ZRDAlertTextFieldReceiver)textField {
-    
-    __weak typeof (self) weakSelf = self;
-    return ^ZRDChainableAlert * () {
-        weakSelf.textFieldConfiged = NO;
-        [weakSelf.textFieldConfigurations addObject:^(UITextField *textField){}];
-        return weakSelf;
-    };
-}
-
-- (ZRDAlertTextFieldConfigReceiver)configurationHandler {
-    
+- (ZRDAlertTextFieldConfigReceiver)configTextField {
     __weak typeof (self) weakSelf = self;
     return ^ZRDChainableAlert * (ZRDAlertTextFieldConfiguration configuration) {
-        NSAssert(weakSelf.textFieldConfiged == NO, @"There must have a text field, otherwise, we can't config.");
-        weakSelf.textFieldConfiged = YES;
-        if (configuration) {
-            [weakSelf.textFieldConfigurations replaceObjectAtIndex:self.textFieldConfigurations.count-1 withObject:configuration];
+        ZRDAlertTextFieldConfiguration action = configuration;
+        if (action == nil) {
+            action = ^(UITextField *textField){};
         }
+        [weakSelf.textFieldConfigurations addObject:action];
         return weakSelf;
     };
 }

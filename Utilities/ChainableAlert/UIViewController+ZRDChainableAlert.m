@@ -54,26 +54,12 @@ static ZRDChainableAlert *chainableAlert;
     };
 }
 
-/**
- *  Add a textField to the alert, if is under iOS 8.0 or is action sheet, no use.
- */
-- (ZRDControllerAlertTextFieldReceiver)textField {
-    __weak typeof (self) weakSelf = self;
-    __weak typeof (chainableAlert) weakAlert = chainableAlert;
-    return ^UIViewController * () {
-        weakAlert.textField();
-        return weakSelf;
-    };
-}
 
-/**
- *  Config the textField, if is under iOS 8.0 or is action sheet, no use.
- */
-- (ZRDControllerAlertTextFieldConfigReceiver)configurationHandler {
+- (ZRDControllerAlertTextFieldConfigReceiver)configTextField {
     __weak typeof (self) weakSelf = self;
     __weak typeof (chainableAlert) weakAlert = chainableAlert;
     return ^UIViewController * (ZRDAlertTextFieldConfiguration configuration) {
-        weakAlert.configurationHandler(configuration);
+        weakAlert.configTextField(configuration);
         return weakSelf;
     };
 }
