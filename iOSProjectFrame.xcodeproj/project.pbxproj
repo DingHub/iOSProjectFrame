@@ -26,6 +26,7 @@
 		84B7083A1CF00A33008C51AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B708391CF00A33008C51AD /* ViewController.m */; };
 		84C3BEFF1D6D280800817686 /* UIImage+CutCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BEFE1D6D280800817686 /* UIImage+CutCircle.m */; };
 		84C3BF071D6D797200817686 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BF061D6D797200817686 /* Random.m */; };
+		84C3BF0E1D6EE06D00817686 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BF0D1D6EE06D00817686 /* BaseNavigationController.m */; };
 		84FC67B91D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */; };
 		84FC67BA1D5DD1B8009A4A04 /* ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B81D5DD1B8009A4A04 /* ZRDChainableAlert.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		84C3BEFE1D6D280800817686 /* UIImage+CutCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CutCircle.m"; sourceTree = "<group>"; };
 		84C3BF051D6D797200817686 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		84C3BF061D6D797200817686 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
+		84C3BF0C1D6EE06D00817686 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		84C3BF0D1D6EE06D00817686 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		84FC67B51D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZRDChainableAlert.h"; sourceTree = "<group>"; };
 		84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZRDChainableAlert.m"; sourceTree = "<group>"; };
 		84FC67B71D5DD1B8009A4A04 /* ZRDChainableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRDChainableAlert.h; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				84A107151C995BFC00255782 /* BaseViewController.m */,
 				84465D501D3C73700057A2FE /* BaseTabelViewController.h */,
 				84465D511D3C73700057A2FE /* BaseTabelViewController.m */,
+				84C3BF0C1D6EE06D00817686 /* BaseNavigationController.h */,
+				84C3BF0D1D6EE06D00817686 /* BaseNavigationController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				848FFC3F1D5AF06600AF6B0D /* FileHelper.m in Sources */,
 				84A107161C995BFC00255782 /* BaseViewController.m in Sources */,
 				848FFC321D5AE8C700AF6B0D /* UIView+ParentViewController.m in Sources */,
+				84C3BF0E1D6EE06D00817686 /* BaseNavigationController.m in Sources */,
 				843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */,
 				843746BE1D45ADFA0014D5C6 /* DeviceInfo.m in Sources */,
 				843746BF1D45ADFA0014D5C6 /* HttpHelper.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+ZRDChainableAlert.h"
 
 const static NSInteger kPageSize = 5;
 

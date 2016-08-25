@@ -7,7 +7,6 @@
 //
 
 #import "BaseTabelViewController.h"
-#import "UIViewController+ZRDChainableAlert.h"
 
 
 @implementation BaseTabelViewController
