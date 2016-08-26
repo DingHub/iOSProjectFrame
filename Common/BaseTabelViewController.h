@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewController+ZRDChainableAlert.h"
+#import "BaseViewController.h"
 
 const static NSInteger kPageSize = 5;
 
-@interface BaseTabelViewController : UITableViewController
+@interface BaseTabelViewController : BaseViewController
 
 @property (nonatomic, assign) NSInteger pageNumber;
-- (void)createRefreshHeaderWithCallback:(void(^)())block;
-- (void)createRefreshFooterWithCallback:(void(^)())block;
-- (void)noMoreInfoAction;
 
 @end

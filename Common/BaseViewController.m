@@ -11,8 +11,7 @@
 
 @interface BaseViewController ()
 
-//  webView for dialing
-@property (nonatomic, strong) UIWebView *dialWebView;
+@property (nonatomic, strong) NSArray<UIBarButtonItem *> *leftButtonItems;
 
 @end
 
@@ -21,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self makeCustomBackButton];
     self.view.backgroundColor = [UIColor whiteColor];
 
 }
@@ -30,17 +29,38 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)dialNumber:(NSString *)phoneNumber {
-    // An interesting method to dial a number~
-    NSString *string = [NSString stringWithFormat:@"tel:%@", phoneNumber];
-    [self.dialWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:string]]];
-}
-- (UIWebView *)dialWebView {
-    if (_dialWebView == nil) {
-        _dialWebView = [UIWebView new];
-        [self.view addSubview:_dialWebView];
+- (void)makeCustomBackButton {
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    if ( viewControllers.count > 0 ) {
+        if ( viewControllers[0] == self ) {
+            self.navigationItem.leftBarButtonItems = nil;
+        } else {
+            self.navigationItem.leftBarButtonItems = self.leftButtonItems;
+        }
     }
-    return _dialWebView;
 }
+
+- (NSArray<UIBarButtonItem *> *)leftButtonItems {
+    if (_leftButtonItems == nil) {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backBtn setFrame:CGRectMake(0, 0, 44, 44)];
+        [backBtn setImage:[UIImage imageNamed:@"nav_Back"] forState:UIControlStateNormal];
+        [backBtn addTarget:self action:@selector(backButtonPress) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backNavigationItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        
+        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
+                                           initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                           target:nil action:nil];
+        negativeSpacer.width = -18;
+        _leftButtonItems = @[negativeSpacer, backNavigationItem];
+    }
+    return _leftButtonItems;
+}
+
+
+-(void)backButtonPress {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 @end

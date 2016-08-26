@@ -14,28 +14,11 @@
 
 @property (nonatomic, getter = isDuringPushAnimation) BOOL duringPushAnimation;
 @property (weak, nonatomic) id<UINavigationControllerDelegate> realDelegate;
-@property (nonatomic, strong) NSArray<UIBarButtonItem *> *leftButtonItems;
 
 @end
 
 @implementation BaseNavigationController
 
-- (NSArray<UIBarButtonItem *> *)leftButtonItems {
-    if (_leftButtonItems == nil) {
-        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backBtn setFrame:CGRectMake(0, 0, 44, 44)];
-        [backBtn setImage:[UIImage imageNamed:@"nav_Back"] forState:UIControlStateNormal];
-        [backBtn addTarget:self action:@selector(backButtonPress) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *backNavigationItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-        
-        UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
-                                           initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                           target:nil action:nil];
-        negativeSpacer.width = -18;
-        _leftButtonItems = @[negativeSpacer, backNavigationItem];
-    }
-    return _leftButtonItems;
-}
 #pragma mark Life circle.
 
 - (void)dealloc {
@@ -50,50 +33,17 @@
     }
     self.interactivePopGestureRecognizer.delegate = self;
     
-    //custom navigation bar
-    NSDictionary *titleAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHex:0x474747],
-                                      NSFontAttributeName:[UIFont systemFontOfSize:15]
-                                      };
-    self.navigationBar.titleTextAttributes = titleAttributes;
+#pragma mark custom the navigation bar
+    //  (-- It's better to custom the back button in BaseViewController, because you can override the button action in a single view controller.)
     
+    //  title
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHex:0x474747],
+                                               NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    //  background and bottom line
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     [self.navigationBar setBackgroundImage:[ImageHelper imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [ImageHelper imageFromColor:[UIColor clearColor] andSize:CGSizeMake(screenWidth, 1)];
     
-    __weak typeof (self) weakSelf = self;
-    self.backButtonItemAction = ^{
-        [weakSelf popViewControllerAnimated:YES];
-    };
-    
-}
-
--(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    [self setLeftButtonToController:viewController];
-}
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
-    self = [super initWithRootViewController:rootViewController];
-    if (self) {
-        [self setLeftButtonToController:rootViewController];
-    }
-    return self;
-}
-- (void)setLeftButtonToController:(UIViewController *)viewController {
-    NSArray *viewControllers = self.viewControllers;
-    if ( viewControllers.count > 0 ) {
-        if ( viewControllers[0] == viewController ) {
-            viewController.navigationItem.leftBarButtonItems = nil;
-        } else {
-            viewController.navigationItem.leftBarButtonItems = self.leftButtonItems;
-        }
-    }
-}
-
--(void)backButtonPress {
-    if (self.backButtonItemAction) {
-        self.backButtonItemAction();
-    } else {
-        [self popViewControllerAnimated:YES];
-    }
 }
 
 #pragma mark UINavigationController
