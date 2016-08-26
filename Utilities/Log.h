@@ -1,13 +1,13 @@
 //
-//  JustForLog.pch
+//  Log.h
 //  iOSProjectFrame
 //
 //  Created by admin on 16/6/2.
 //  Copyright © 2016年 Ding. All rights reserved.
 //
 
-#ifndef JustForLog_pch
-#define JustForLog_pch
+#ifndef Log_h
+#define Log_h
 
 #ifndef __OPTIMIZE__
 

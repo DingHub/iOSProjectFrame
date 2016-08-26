@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfE-MS-Pmy">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="283" y="285" width="35" height="30"/>
+                                <state key="normal" title="Push"/>
                                 <connections>
                                     <segue destination="Z19-TF-Ge2" kind="show" id="cdx-a3-AAt"/>
                                 </connections>
@@ -50,8 +50,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZc-y8-UfW">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="283" y="285" width="35" height="30"/>
+                                <state key="normal" title="Push"/>
                                 <connections>
                                     <segue destination="paF-no-8HV" kind="show" id="9I7-Ik-UJt"/>
                                 </connections>
