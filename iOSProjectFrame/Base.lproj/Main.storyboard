@@ -21,7 +21,7 @@
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="paF-no-8HV" kind="show" id="ing-Sk-gxv"/>
+                                    <segue destination="Z19-TF-Ge2" kind="show" id="cdx-a3-AAt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -37,10 +37,41 @@
             </objects>
             <point key="canvasLocation" x="1518" y="923"/>
         </scene>
+        <!--Base View Controller-->
+        <scene sceneID="wz2-JP-Ukk">
+            <objects>
+                <viewController id="Z19-TF-Ge2" customClass="BaseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tEI-Hp-Dc0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jso-uA-x1M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p47-Pi-hco">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZc-y8-UfW">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="paF-no-8HV" kind="show" id="9I7-Ik-UJt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gZc-y8-UfW" firstAttribute="centerX" secondItem="p47-Pi-hco" secondAttribute="centerX" id="lXk-2o-aDx"/>
+                            <constraint firstItem="gZc-y8-UfW" firstAttribute="centerY" secondItem="p47-Pi-hco" secondAttribute="centerY" id="uzS-OZ-Aj9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gp-2Z-ZqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1882" y="998"/>
+        </scene>
         <!--Detail-->
         <scene sceneID="DTV-hc-sIk">
             <objects>
-                <viewController id="paF-no-8HV" customClass="BaseViewController" sceneMemberID="viewController">
+                <viewController id="paF-no-8HV" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="obS-yz-dTo"/>
                         <viewControllerLayoutGuide type="bottom" id="z9q-ti-cF8"/>

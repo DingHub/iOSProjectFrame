@@ -11,7 +11,8 @@
 /**
  *  A UINavigationController subclass allowing the interactive pop gesture to be recognized when the navigation bar is hidden or a custom back button is used.
  *  We can also custom appearance of the navigation bar in the impletion file(BaseNavigationController.m).
- *  Thanks for the idea goes to https://github.com/fastred/AHKNavigationController
+ *
+ *  Thanks for https://github.com/fastred/AHKNavigationController
  */
 
 @interface BaseNavigationController : UINavigationController
