@@ -34,12 +34,12 @@
     self.interactivePopGestureRecognizer.delegate = self;
     
 #pragma mark custom the navigation bar
-    //  (-- It's better to custom the back button in BaseViewController, because you can override the button action in a single view controller.)
+    //  (It's better to custom the back button in BaseViewController, because you can override the button action in a single view controller. --see BaseViewController.m)
     
-    //  title
+    //  Title
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHex:0x474747],
                                                NSFontAttributeName:[UIFont systemFontOfSize:15]};
-    //  background and bottom line
+    //  Background and bottom line
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     [self.navigationBar setBackgroundImage:[ImageHelper imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.shadowImage = [ImageHelper imageFromColor:[UIColor clearColor] andSize:CGSizeMake(screenWidth, 1)];
@@ -73,9 +73,8 @@
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if (gestureRecognizer == self.interactivePopGestureRecognizer) {
         return self.viewControllers.count > 1 && !self.isDuringPushAnimation;
-    } else {
-        return YES;
     }
+    return YES;
 }
 
 #pragma mark Delegate Forwarder

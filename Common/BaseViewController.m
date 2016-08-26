@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //custom back button. --if you want more customs, see BaseNavigationController.m
     [self makeCustomBackButton];
     self.view.backgroundColor = [UIColor whiteColor];
 
@@ -31,10 +32,8 @@
 
 - (void)makeCustomBackButton {
     NSArray *viewControllers = self.navigationController.viewControllers;
-    if ( viewControllers.count > 0 ) {
-        if ( viewControllers[0] == self ) {
-            self.navigationItem.leftBarButtonItems = nil;
-        } else {
+    if (viewControllers.count > 0 ) {
+        if (viewControllers[0] != self ) {
             self.navigationItem.leftBarButtonItems = self.leftButtonItems;
         }
     }
