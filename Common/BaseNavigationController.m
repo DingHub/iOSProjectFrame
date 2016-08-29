@@ -9,6 +9,7 @@
 #import "BaseNavigationController.h"
 #import "Color.h"
 #import "ImageHelper.h"
+#import "MyStyle.h"
 
 @interface BaseNavigationController () <UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
@@ -37,12 +38,11 @@
     //  (It's better to custom the back button in BaseViewController, because you can override the button action in a single view controller. --see BaseViewController.m)
     
     //  Title
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithHex:0x474747],
-                                               NSFontAttributeName:[UIFont systemFontOfSize:15]};
+    self.navigationBar.titleTextAttributes = navigationBarTitleTextAttributes;
     //  Background and bottom line
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    [self.navigationBar setBackgroundImage:[ImageHelper imageFromColor:[UIColor colorWithHexString:@"bbeebb"] andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.shadowImage = [ImageHelper imageFromColor:[UIColor clearColor] andSize:CGSizeMake(screenWidth, 1)];
+    [self.navigationBar setBackgroundImage:[ImageHelper imageFromColor:navigationBarBackgroundColor andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = [ImageHelper imageFromColor:navigationBarShadowImageColor andSize:CGSizeMake(screenWidth, 1)];
     
 }
 

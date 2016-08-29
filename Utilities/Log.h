@@ -30,4 +30,4 @@
 #endif /* __OPTIMIZE__ */
 
 
-#endif /* JustForLog_pch */
+#endif /* Log_h */

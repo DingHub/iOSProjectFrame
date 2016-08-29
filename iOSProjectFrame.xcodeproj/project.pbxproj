@@ -46,6 +46,7 @@
 		843746B81D45ADFA0014D5C6 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		84630BF81D73C6E700B54709 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		84630BF91D73C6E700B54709 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		84630BFF1D73D3C600B54709 /* MyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStyle.h; sourceTree = "<group>"; };
 		848FFC301D5AE8C700AF6B0D /* UIView+ParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ParentViewController.h"; sourceTree = "<group>"; };
 		848FFC311D5AE8C700AF6B0D /* UIView+ParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ParentViewController.m"; sourceTree = "<group>"; };
 		848FFC331D5AE98300AF6B0D /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
@@ -176,6 +177,7 @@
 		84A107131C995BFC00255782 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				84630BFF1D73D3C600B54709 /* MyStyle.h */,
 				84A107141C995BFC00255782 /* BaseViewController.h */,
 				84A107151C995BFC00255782 /* BaseViewController.m */,
 				84630BF81D73C6E700B54709 /* BaseTableViewController.h */,

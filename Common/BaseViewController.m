@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "ImageHelper.h"
+#import "MyStyle.h"
 
 @interface BaseViewController ()
 
@@ -43,7 +44,7 @@
     if (_leftButtonItems == nil) {
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [backBtn setFrame:CGRectMake(0, 0, 44, 44)];
-        [backBtn setImage:[UIImage imageNamed:@"nav_Back"] forState:UIControlStateNormal];
+        [backBtn setImage:[UIImage imageNamed:backButtonImageName] forState:UIControlStateNormal];
         [backBtn addTarget:self action:@selector(backButtonPress) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *backNavigationItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
         
