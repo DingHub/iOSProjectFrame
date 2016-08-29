@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Screen : NSObject 
+@interface Screen : NSObject
+
+/**
+ *  Bounds of the main screen
+ */
++ (CGRect)bounds;
 
 /**
  *  Size of the main screen

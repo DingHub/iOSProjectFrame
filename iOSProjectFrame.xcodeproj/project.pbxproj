@@ -12,6 +12,7 @@
 		843746BF1D45ADFA0014D5C6 /* HttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B31D45ADFA0014D5C6 /* HttpHelper.m */; };
 		843746C01D45ADFA0014D5C6 /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B51D45ADFA0014D5C6 /* ImageHelper.m */; };
 		843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 843746B71D45ADFA0014D5C6 /* JSONHelper.m */; };
+		84630BFA1D73C6E700B54709 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84630BF91D73C6E700B54709 /* BaseTableViewController.m */; };
 		848FFC321D5AE8C700AF6B0D /* UIView+ParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFC311D5AE8C700AF6B0D /* UIView+ParentViewController.m */; };
 		848FFC351D5AE98300AF6B0D /* UIView+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFC341D5AE98300AF6B0D /* UIView+Snapshot.m */; };
 		848FFC3C1D5AEF4F00AF6B0D /* Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 848FFC3B1D5AEF4F00AF6B0D /* Screen.m */; };
@@ -43,6 +44,8 @@
 		843746B61D45ADFA0014D5C6 /* JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
 		843746B71D45ADFA0014D5C6 /* JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
 		843746B81D45ADFA0014D5C6 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		84630BF81D73C6E700B54709 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		84630BF91D73C6E700B54709 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		848FFC301D5AE8C700AF6B0D /* UIView+ParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ParentViewController.h"; sourceTree = "<group>"; };
 		848FFC311D5AE8C700AF6B0D /* UIView+ParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ParentViewController.m"; sourceTree = "<group>"; };
 		848FFC331D5AE98300AF6B0D /* UIView+Snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Snapshot.h"; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 			children = (
 				84A107141C995BFC00255782 /* BaseViewController.h */,
 				84A107151C995BFC00255782 /* BaseViewController.m */,
+				84630BF81D73C6E700B54709 /* BaseTableViewController.h */,
+				84630BF91D73C6E700B54709 /* BaseTableViewController.m */,
 				84C3BF0C1D6EE06D00817686 /* BaseNavigationController.h */,
 				84C3BF0D1D6EE06D00817686 /* BaseNavigationController.m */,
 			);
@@ -285,6 +290,7 @@
 				843746BD1D45ADFA0014D5C6 /* Color.m in Sources */,
 				848FFC3C1D5AEF4F00AF6B0D /* Screen.m in Sources */,
 				84C3BEFF1D6D280800817686 /* UIImage+CutCircle.m in Sources */,
+				84630BFA1D73C6E700B54709 /* BaseTableViewController.m in Sources */,
 				84FC67B91D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m in Sources */,
 				84FC67BA1D5DD1B8009A4A04 /* ZRDChainableAlert.m in Sources */,
 				848FFC351D5AE98300AF6B0D /* UIView+Snapshot.m in Sources */,

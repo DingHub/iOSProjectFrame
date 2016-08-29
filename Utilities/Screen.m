@@ -10,8 +10,11 @@
 
 @implementation Screen
 
++ (CGRect)bounds {
+    return [UIScreen mainScreen].bounds;
+}
 + (CGSize)size {
-    return [UIScreen mainScreen].bounds.size;
+    return self.bounds.size;
 }
 + (CGFloat)width {
     return self.size.width;
@@ -22,6 +25,5 @@
 + (CGFloat)statusBarHeight {
     return [UIApplication sharedApplication].statusBarFrame.size.height;
 }
-
 
 @end

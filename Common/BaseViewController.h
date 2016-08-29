@@ -12,6 +12,7 @@
 
 #import "Log.h"
 #import "Color.h"
+#import "Screen.h"
 #import "UIViewController+ZRDChainableAlert.h"
 
 
