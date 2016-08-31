@@ -10,7 +10,7 @@
 
 #pragma mark : Here are some headers used frequently
 
-#import "Log.h"
+#import "Macros.h"
 #import "Color.h"
 #import "Screen.h"
 #import "UIViewController+ZRDChainableAlert.h"

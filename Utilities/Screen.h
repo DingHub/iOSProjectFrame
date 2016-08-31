@@ -31,7 +31,7 @@
 + (CGFloat)height;
 
 /**
- *  Heitht of the status bar
+ *  Height of the status bar
  */
 + (CGFloat)statusBarHeight;
 

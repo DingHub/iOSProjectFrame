@@ -26,7 +26,6 @@
     return image;
 }
 
-
 + (UIImage *)imageFromSourceImage:(UIImage *)sourceImage compressedToWidth:(CGFloat)newWidth {
     CGFloat origonWidth = sourceImage.size.width;
     CGFloat origonHeight = sourceImage.size.height;

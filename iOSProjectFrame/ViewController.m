@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dLog(@"Hello world!");
+    DanceWeak(self);
 }
 
 - (void)didReceiveMemoryWarning {

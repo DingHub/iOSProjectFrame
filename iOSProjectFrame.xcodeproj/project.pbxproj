@@ -43,7 +43,7 @@
 		843746B51D45ADFA0014D5C6 /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHelper.m; sourceTree = "<group>"; };
 		843746B61D45ADFA0014D5C6 /* JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
 		843746B71D45ADFA0014D5C6 /* JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
-		843746B81D45ADFA0014D5C6 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		843746B81D45ADFA0014D5C6 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		84630BF81D73C6E700B54709 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		84630BF91D73C6E700B54709 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		84630BFF1D73D3C600B54709 /* MyStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStyle.h; sourceTree = "<group>"; };
@@ -109,9 +109,9 @@
 				843746B51D45ADFA0014D5C6 /* ImageHelper.m */,
 				843746B61D45ADFA0014D5C6 /* JSONHelper.h */,
 				843746B71D45ADFA0014D5C6 /* JSONHelper.m */,
-				843746B81D45ADFA0014D5C6 /* Log.h */,
 				84C3BF051D6D797200817686 /* Random.h */,
 				84C3BF061D6D797200817686 /* Random.m */,
+				843746B81D45ADFA0014D5C6 /* Macros.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

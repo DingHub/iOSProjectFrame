@@ -7,7 +7,7 @@
 //
 
 #import "JSONHelper.h"
-#import "Log.h"
+#import "Macros.h"
 
 @implementation JSONHelper
 
