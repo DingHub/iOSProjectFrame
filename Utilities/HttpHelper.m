@@ -9,24 +9,18 @@
 #import "HttpHelper.h"
 #import "JSONHelper.h"
 
+static const NSTimeInterval kTimeout = 30;
 @implementation HttpHelper
 
 + (NSString *)host {
 #if DEBUG
-    return @"http://www.test.com";
+    return @"https://www.test.com";
 #else
-    return @"http://www.normal.com";
+    return @"https://www.normal.com";
 #endif
 }
 
-/**
- *  Http request
- *  @param method     GET, POST and so on
- *  @param path       can be connected with parameters, e.g. "/mobileserver/searchKey.Do?key=hell0"
- *  @param parameters can be nil
- *  @param block      if failed, error will be a hint message and data will be nil
- */
-+ (void)requestWithMethod:(RequestMethod)method
++ (void)requestWithMethod:(HttpRequestMethod)method
                      path:(NSString *)path
                parameters:(NSDictionary *)parameters
                completion:(void(^)(NSError *error, id responseData))block {
@@ -35,28 +29,44 @@
     [self requestWithMethod:method absolutePath:absolutePath parameters:parameters completion:block];
 }
 
-+ (void)requestWithMethod:(RequestMethod)method
++ (void)requestWithMethod:(HttpRequestMethod)method
                     host:(NSString *)host
                      path:(NSString *)path
                parameters:(NSDictionary *)parameters
-               completion:(void (^)(NSError *, id))block {
+               completion:(void (^)(NSError *error, id responseData))block {
     
     NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
     [self requestWithMethod:method absolutePath:absolutePath parameters:parameters completion:block];
     
 }
 
-+ (void)requestWithMethod:(RequestMethod)method
++ (void)requestWithMethod:(HttpRequestMethod)method
              absolutePath:(NSString *)absolutePath
                parameters:(NSDictionary *)parameters
-               completion:(void (^)(NSError *, id))block {
-    
+               completion:(void (^)(NSError *error, id responseData))block {
+    [self requestWithMethod:method absolutePath:absolutePath parameters:parameters timeout:kTimeout completion:block];
+}
+
++ (void)requestWithMethod:(HttpRequestMethod)method
+                     path:(NSString *)path
+               parameters:(NSDictionary *)parameters
+                  timeout:(NSTimeInterval)timeout
+               completion:(void(^)(NSError *error, id responseData))block {
+    NSString *absolutePath = [NSString stringWithFormat:@"%@%@", [self host], path];
+    [self requestWithMethod:method absolutePath:absolutePath parameters:parameters timeout:timeout completion:block];
+}
+
++ (void)requestWithMethod:(HttpRequestMethod)method
+             absolutePath:(NSString *)absolutePath
+               parameters:(NSDictionary *)parameters
+                  timeout:(NSTimeInterval)timeout
+               completion:(void (^)(NSError *error, id responseData))block {
     //you can use some vendor such as AFNetworking, ASIHttpRequest, or iOS native API.
     
     //Used Apple's native api here:
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:absolutePath]];
-    request.timeoutInterval = 30;
+    request.timeoutInterval = timeout;
     
     switch (method) {
         case POST:
@@ -85,7 +95,6 @@
         
     }];
     [task resume];
-
 }
 
 
