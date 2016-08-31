@@ -20,13 +20,11 @@
 + (NSData *)dataWithJSON:(id)object {
     
     if (object == nil) {
-        dLog(@"JSON->NSData failed:JSON is nil");
         return nil;
     }
     NSError *error;
     id data = [NSJSONSerialization dataWithJSONObject:object options:0 error:&error];
     if (error) {
-        dLog(@"JSON->NSData failed:%@", error);
         return nil;
     }
     return data;
@@ -38,13 +36,11 @@
  */
 + (id)JSONWithData:(NSData *)data {
     if (data == nil) {
-        dLog(@"NSData->JSON failed:data is nil");
         return nil;
     }
     NSError *error;
     id JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
-        dLog(@"NSData->JSON failed:%@", error);
         return nil;
     }
     return JSON;

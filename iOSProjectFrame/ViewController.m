@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HttpHelper.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dLog(@"Hello world!");
+    NSString *path = @"https://www.baidu.com";
+    NSDictionary *pars = @{@"key": @"value",
+                           @"num": @100};
+    [HttpHelper requestWithMethod:GET absolutePath:path parameters:pars completion:^(NSError *error, id responseData) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

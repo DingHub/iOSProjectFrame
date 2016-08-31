@@ -8,6 +8,7 @@
 
 #import "HttpHelper.h"
 #import "JSONHelper.h"
+#import "Macros.h"
 
 static const NSTimeInterval kTimeout = 30;
 @implementation HttpHelper
@@ -78,9 +79,11 @@ static const NSTimeInterval kTimeout = 30;
             break;
     }
     
-    request.HTTPBody = [JSONHelper dataWithJSON:parameters];
+    if (parameters) {
+        request.HTTPBody = [JSONHelper dataWithJSON:parameters];
+    }
     
-    NSLog(@"Http request--> %@", request);
+    dLog(@"%@", [self stringWithURL:absolutePath combinedParameters:parameters]);
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -92,9 +95,29 @@ static const NSTimeInterval kTimeout = 30;
             NSDictionary *dictionary = [JSONHelper JSONWithData:data];
             block(nil, dictionary);
         });
-        
     }];
     [task resume];
+}
+
++ (NSString *)stringWithURL:(NSString *)URLString combinedParameters:(NSDictionary *)parameters {
+    NSString *parString = [JSONHelper stringWithJSON:parameters];
+    if (URLString == nil || parString == nil) {
+        return URLString;
+    }
+    NSMutableString *result = [NSMutableString stringWithString:URLString];
+    [result appendString:@"?"];
+    
+    if ([parString hasPrefix:@"{"]) {
+        parString = [parString substringFromIndex:1];
+    }
+    if ([parString hasSuffix:@"}"]) {
+        parString = [parString substringToIndex:parString.length-1];
+    }
+    parString = [parString stringByReplacingOccurrencesOfString:@":" withString:@"="];
+    parString = [parString stringByReplacingOccurrencesOfString:@"," withString:@"&"];
+    parString = [parString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    [result appendString:parString];
+    return result;
 }
 
 
