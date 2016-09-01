@@ -83,7 +83,7 @@ static const NSTimeInterval kTimeout = 30;
         request.HTTPBody = [JSONHelper dataWithJSON:parameters];
     }
     
-    dLog(@"%@", [self stringWithURL:absolutePath combinedParameters:parameters]);
+    dLog(@"%@", [self combinedStringWithURL:absolutePath parameters:parameters]);
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -99,7 +99,7 @@ static const NSTimeInterval kTimeout = 30;
     [task resume];
 }
 
-+ (NSString *)stringWithURL:(NSString *)URLString combinedParameters:(NSDictionary *)parameters {
++ (NSString *)combinedStringWithURL:(NSString *)URLString parameters:(NSDictionary *)parameters {
     NSString *parString = [JSONHelper stringWithJSON:parameters];
     if (URLString == nil || parString == nil) {
         return URLString;
