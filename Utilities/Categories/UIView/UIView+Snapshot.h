@@ -13,3 +13,9 @@
 - (UIImage *)snapshot;
 
 @end
+
+@interface UIScrollView (Snapshot)
+
+- (UIImage *)fullSnapshot;
+
+@end

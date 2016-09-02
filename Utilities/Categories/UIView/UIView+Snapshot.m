@@ -19,3 +19,19 @@
 }
 
 @end
+
+@implementation UIScrollView (Snapshot)
+
+- (UIImage *)fullSnapshot {
+    
+    CGRect originFrame = self.frame;
+    CGRect frame = originFrame;
+    frame.size.height = self.contentSize.height;
+    self.frame = frame;
+    
+    UIImage *image = [self snapshot];
+    self.frame = originFrame;
+    return image;
+}
+
+@end
