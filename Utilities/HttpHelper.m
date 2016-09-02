@@ -99,6 +99,12 @@ static const NSTimeInterval kTimeout = 30;
     [task resume];
 }
 
+/**
+ *  Combine URL and parameters as a String
+ *  @param URLString  e.g. "https://www.test.com"
+ *  @param parameters e.g. ["key": "value"]
+ *  @return e.g. "https://www.test.com?key=value"
+ */
 + (NSString *)combinedStringWithURL:(NSString *)URLString parameters:(NSDictionary *)parameters {
     NSString *parString = [JSONHelper stringWithJSON:parameters];
     if (URLString == nil || parString == nil) {
