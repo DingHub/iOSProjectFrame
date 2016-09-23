@@ -9,6 +9,8 @@
 #ifndef MyStyle_h
 #define MyStyle_h
 
+/// Base syle defines
+
 // Navigation bar
 #define backButtonImageName @"nav_Back"
 #define navigationBarTitleColorHexValue 0x474747
