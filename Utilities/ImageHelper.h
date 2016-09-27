@@ -19,7 +19,7 @@
 /**
  *  generate image with color and size
  */
-+ (UIImage *)imageFromColor:(UIColor *)color andSize:(CGSize)size;
++ (UIImage *)imageFromColor:(UIColor *)color size:(CGSize)size;
 
 /**
  *  Compress image

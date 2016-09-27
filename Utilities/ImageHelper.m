@@ -12,10 +12,10 @@
 @implementation ImageHelper
 
 + (UIImage *)imageFromColor:(UIColor *)color {
-    return [self imageFromColor:color andSize:CGSizeMake(1.0f, 1.0f)];
+    return [self imageFromColor:color size:CGSizeMake(1.0f, 1.0f)];
 }
 
-+ (UIImage *)imageFromColor:(UIColor *)color andSize:(CGSize)size {
++ (UIImage *)imageFromColor:(UIColor *)color size:(CGSize)size {
     CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
     UIGraphicsBeginImageContext(size);
     CGContextRef context = UIGraphicsGetCurrentContext();
