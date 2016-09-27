@@ -239,7 +239,6 @@
 				TargetAttributes = {
 					84A106F01C995B8D00255782 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 895M86LRXV;
 					};
 				};
 			};
@@ -410,7 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 895M86LRXV;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iOSProjectFrame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -424,7 +423,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 895M86LRXV;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = iOSProjectFrame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

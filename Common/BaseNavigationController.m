@@ -41,8 +41,8 @@
     self.navigationBar.titleTextAttributes = navigationBarTitleTextAttributes;
     //  Background and bottom line
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    [self.navigationBar setBackgroundImage:[ImageHelper imageFromColor:navigationBarBackgroundColor andSize:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.shadowImage = [ImageHelper imageFromColor:navigationBarShadowImageColor andSize:CGSizeMake(screenWidth, 1)];
+    [self.navigationBar setBackgroundImage:[ImageHelper imageFromColor:navigationBarBackgroundColor size:CGSizeMake( screenWidth, 64)] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = [ImageHelper imageFromColor:navigationBarShadowImageColor size:CGSizeMake(screenWidth, 1)];
     
 }
 
