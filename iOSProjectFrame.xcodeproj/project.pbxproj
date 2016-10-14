@@ -30,6 +30,7 @@
 		84C3C05E1D6FFF8B00817686 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C3C05D1D6FFF8B00817686 /* DetailViewController.m */; };
 		84FC67B91D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */; };
 		84FC67BA1D5DD1B8009A4A04 /* ZRDChainableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FC67B81D5DD1B8009A4A04 /* ZRDChainableAlert.m */; };
+		84FE152C1DB06A3A001306D6 /* GCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE152B1DB06A3A001306D6 /* GCD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		84FC67B61D5DD1B8009A4A04 /* UIViewController+ZRDChainableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZRDChainableAlert.m"; sourceTree = "<group>"; };
 		84FC67B71D5DD1B8009A4A04 /* ZRDChainableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRDChainableAlert.h; sourceTree = "<group>"; };
 		84FC67B81D5DD1B8009A4A04 /* ZRDChainableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRDChainableAlert.m; sourceTree = "<group>"; };
+		84FE152A1DB06A3A001306D6 /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		84FE152B1DB06A3A001306D6 /* GCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				84C3BF051D6D797200817686 /* Random.h */,
 				84C3BF061D6D797200817686 /* Random.m */,
 				843746B81D45ADFA0014D5C6 /* Macros.h */,
+				84FE152A1DB06A3A001306D6 /* GCD.h */,
+				84FE152B1DB06A3A001306D6 /* GCD.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -234,7 +239,7 @@
 		84A106E91C995B8D00255782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Ding;
 				TargetAttributes = {
 					84A106F01C995B8D00255782 = {
@@ -287,6 +292,7 @@
 				843746C11D45ADFA0014D5C6 /* JSONHelper.m in Sources */,
 				843746BE1D45ADFA0014D5C6 /* DeviceInfo.m in Sources */,
 				843746BF1D45ADFA0014D5C6 /* HttpHelper.m in Sources */,
+				84FE152C1DB06A3A001306D6 /* GCD.m in Sources */,
 				84C3C05E1D6FFF8B00817686 /* DetailViewController.m in Sources */,
 				84A106F91C995B8D00255782 /* AppDelegate.m in Sources */,
 				843746BD1D45ADFA0014D5C6 /* Color.m in Sources */,
@@ -336,8 +342,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -359,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -380,8 +388,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -397,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
