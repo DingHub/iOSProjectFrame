@@ -13,6 +13,7 @@
 #ifndef __OPTIMIZE__
 
 /** Log */
+#define NSLog(...) printf("%s\n",[[NSString stringWithFormat:__VA_ARGS__] UTF8String])
 // print when debuging
 #define log(format, ...) NSLog(format, ## __VA_ARGS__)
 // print detail log (starts with file name, line number and method name) when debuging
