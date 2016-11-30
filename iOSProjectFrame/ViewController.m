@@ -18,9 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     dLog(@"Hello world!");
-    [GCD runAfter:3 action:^{
-        log(@"Glad to meet you again!");
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
